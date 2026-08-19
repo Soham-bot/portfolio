@@ -27,11 +27,10 @@ const themeScript = `
 (function() {
   try {
     var stored = localStorage.getItem('soham-theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var theme = stored || (prefersDark ? 'dark' : 'light');
+    var theme = stored || 'light';
     document.documentElement.setAttribute('data-theme', theme);
   } catch(e) {
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 })();
 `;
@@ -42,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         {/* Anti-flash: must be first script, before any CSS can paint */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

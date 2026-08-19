@@ -21,13 +21,12 @@ export function useTheme() {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Start with dark — the inline script in layout handles the real init
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   // On mount, read what the inline script already applied
   useEffect(() => {
     const stored = localStorage.getItem("soham-theme") as Theme | null;
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const resolved: Theme = stored ?? (systemDark ? "dark" : "light");
+    const resolved: Theme = stored ?? "light";
     setTheme(resolved);
     document.documentElement.setAttribute("data-theme", resolved);
   }, []);
