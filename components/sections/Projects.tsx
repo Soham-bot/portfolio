@@ -72,7 +72,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   const [showArch, setShowArch] = useState(false);
 
   const tierStyles = {
-    S: "text-yellow-500 border-yellow-500/30 bg-yellow-500/5",
+    S: "text-amber-600 border-amber-500/40 bg-amber-500/8 dark:text-yellow-400 dark:border-yellow-400/30 dark:bg-yellow-400/5",
     A: "text-[var(--accent)] border-[var(--accent)]/30 bg-[var(--accent-dim)]",
     B: "text-[var(--text-muted)] border-[var(--border)] bg-[var(--surface-alt)]",
   };
@@ -84,7 +84,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
       )}
       <article className="project-card border border-[var(--border)] bg-[var(--surface)] p-6 hover:border-[var(--accent)]/20 relative group flex flex-col">
         {project.tier === "S" && (
-          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-yellow-500/60" />
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-500/50" />
         )}
 
         <div className="flex justify-between items-start mb-4">
@@ -186,8 +186,8 @@ export default function Projects() {
 
         {(filter === "all" || filter === "S") && (
           <div className="mb-12">
-            <div className="font-mono text-[10px] text-yellow-500/60 mb-4 flex items-center gap-2">
-              <span className="w-4 h-px bg-yellow-500/30" /> TIER S — HERO SYSTEMS
+            <div className="font-mono text-[10px] text-amber-600/80 mb-4 flex items-center gap-2">
+              <span className="w-4 h-px bg-amber-500/40" /> TIER S — HERO SYSTEMS
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {tierS.map((p) => <ProjectCard key={p.id} project={p} />)}

@@ -15,6 +15,16 @@ import Footer from "../components/sections/Footer";
 import GitHubSection from "../components/sections/GitHub";
 import DevMode from "../components/ui/DevMode";
 
+const BOOT_STEPS = [
+  { at: 10,  text: "✓ Loading identity module"     },
+  { at: 25,  text: "✓ Mounting project registry"   },
+  { at: 40,  text: "✓ Initializing DevOps stack"   },
+  { at: 55,  text: "✓ Connecting to GitHub"         },
+  { at: 70,  text: "✓ Loading creative assets"      },
+  { at: 85,  text: "✓ Spinning up terminal"         },
+  { at: 100, text: "✓ SYSTEM ONLINE"                },
+];
+
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -25,16 +35,16 @@ export default function Home() {
       setProgress((p) => {
         if (p >= 100) {
           clearInterval(timer);
-          setTimeout(() => setLoaded(true), 200);
+          setTimeout(() => setLoaded(true), 300);
           return 100;
         }
-        return p + Math.random() * 15 + 5;
+        return Math.min(p + Math.random() * 15 + 5, 100);
       });
     }, 80);
     return () => clearInterval(timer);
   }, []);
 
-  // Keyboard shortcut: Ctrl+Shift+D → scroll to terminal
+  // Ctrl+Shift+D → jump to terminal
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.shiftKey && e.key === "D") {
@@ -47,39 +57,60 @@ export default function Home() {
 
   if (!loaded) {
     return (
-      <div className="fixed inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center z-50 font-mono">
-        {/* Boot sequence */}
+      <div
+        className="fixed inset-0 flex flex-col items-center justify-center z-50 font-mono"
+        style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+      >
         <div className="w-full max-w-md px-8">
-          <div className="text-accent text-xs mb-2">SOHAM-OS v2026</div>
-          <div className="text-[#555] text-xs mb-6">Initializing portfolio system...</div>
-
-          <div className="space-y-1 text-xs text-[#444] mb-8">
-            {progress > 10 && <div className="text-success">✓ Loading identity module</div>}
-            {progress > 25 && <div className="text-success">✓ Mounting project registry</div>}
-            {progress > 40 && <div className="text-success">✓ Initializing DevOps stack</div>}
-            {progress > 55 && <div className="text-success">✓ Connecting to GitHub</div>}
-            {progress > 70 && <div className="text-success">✓ Loading creative assets</div>}
-            {progress > 85 && <div className="text-success">✓ Spinning up terminal</div>}
-            {progress >= 100 && <div className="text-success">✓ SYSTEM ONLINE</div>}
+          {/* Header */}
+          <div className="mb-6">
+            <div style={{ color: "var(--accent)" }} className="text-xs mb-1">
+              SOHAM-OS v2026
+            </div>
+            <div style={{ color: "var(--text-muted)" }} className="text-xs">
+              Initializing portfolio system...
+            </div>
           </div>
 
-          <div className="h-px w-full bg-[#1a1a1a] relative overflow-hidden">
+          {/* Step log */}
+          <div className="space-y-1.5 text-xs mb-8">
+            {BOOT_STEPS.map((step) =>
+              progress >= step.at ? (
+                <div key={step.text} style={{ color: "var(--success)" }}>
+                  {step.text}
+                </div>
+              ) : null
+            )}
+          </div>
+
+          {/* Progress bar */}
+          <div
+            className="h-px w-full relative overflow-hidden"
+            style={{ backgroundColor: "var(--border)" }}
+          >
             <div
-              className="h-full bg-accent transition-all duration-75"
-              style={{ width: `${Math.min(progress, 100)}%` }}
+              className="h-full transition-all duration-75"
+              style={{
+                width: `${Math.min(progress, 100)}%`,
+                backgroundColor: "var(--accent)",
+              }}
             />
           </div>
-          <div className="text-[#333] text-[10px] mt-2 text-right">{Math.min(Math.floor(progress), 100)}%</div>
+          <div
+            className="text-[10px] mt-2 text-right"
+            style={{ color: "var(--text-subtle)" }}
+          >
+            {Math.min(Math.floor(progress), 100)}%
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <main className="bg-[#0a0a0a] text-[#e8e8e8]">
+    <main style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <Cursor />
       <Nav />
-
       <Hero />
       <About />
       <TechStack />

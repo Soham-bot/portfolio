@@ -4,78 +4,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─────────────────────────────────────────────
-   DARK THEME (default)
-   ───────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════
+   DARK THEME  (default)
+═══════════════════════════════════════════════════════ */
 :root,
 html[data-theme="dark"] {
-  --bg:           #0a0a0a;
-  --bg-alt:       #0d0d0d;
-  --surface:      #111111;
-  --surface-alt:  #161616;
-  --border:       #1a1a1a;
-  --border-hover: #2a2a2a;
-  --accent:       #00d4ff;
-  --accent-dim:   rgba(0,212,255,0.15);
-  --accent-glow:  rgba(0,212,255,0.08);
-  --text:         #e8e8e8;
-  --text-dim:     #aaaaaa;
-  --text-muted:   #666666;
-  --text-subtle:  #444444;
-  --text-ghost:   #333333;
-  --success:      #00ff88;
-  --warning:      #ffb800;
-  --error:        #ff3366;
-
-  /* Scrollbar */
+  --bg:              #0a0a0a;
+  --bg-alt:          #0d0d0d;
+  --surface:         #111111;
+  --surface-alt:     #161616;
+  --border:          #1f1f1f;
+  --border-hover:    #2e2e2e;
+  --accent:          #00d4ff;
+  --accent-dim:      rgba(0,212,255,0.12);
+  --accent-glow:     rgba(0,212,255,0.06);
+  --text:            #e8e8e8;
+  --text-dim:        #aaaaaa;
+  --text-muted:      #666666;
+  --text-subtle:     #444444;
+  --text-ghost:      #2e2e2e;
+  --success:         #00ff88;
+  --warning:         #ffb800;
+  --error:           #ff3366;
   --scrollbar-track: #0a0a0a;
-  --scrollbar-thumb: rgba(0,212,255,0.2);
-
-  /* Grid */
-  --grid-line: rgba(0,212,255,0.03);
-
-  /* Card hover shadow */
-  --card-hover-shadow: 0 20px 60px rgba(0,212,255,0.04), 0 0 0 1px rgba(0,212,255,0.13);
-
-  /* Noise opacity */
-  --noise-opacity: 0.03;
+  --scrollbar-thumb: rgba(0,212,255,0.18);
+  --grid-line:       rgba(0,212,255,0.03);
+  --card-shadow:     0 20px 60px rgba(0,212,255,0.04), 0 0 0 1px rgba(0,212,255,0.12);
+  --noise-opacity:   0.03;
+  --gradient-start:  #00d4ff;
+  --gradient-end:    #0099bb;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    LIGHT THEME
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 html[data-theme="light"] {
-  --bg:           #f5f5f3;
-  --bg-alt:       #efefed;
-  --surface:      #ffffff;
-  --surface-alt:  #fafafa;
-  --border:       #e0e0e0;
-  --border-hover: #c8c8c8;
-  --accent:       #0099bb;
-  --accent-dim:   rgba(0,153,187,0.12);
-  --accent-glow:  rgba(0,153,187,0.06);
-  --text:         #111111;
-  --text-dim:     #444444;
-  --text-muted:   #777777;
-  --text-subtle:  #aaaaaa;
-  --text-ghost:   #cccccc;
-  --success:      #00a859;
-  --warning:      #d97706;
-  --error:        #dc2626;
-
-  --scrollbar-track: #f5f5f3;
-  --scrollbar-thumb: rgba(0,153,187,0.2);
-
-  --grid-line: rgba(0,153,187,0.04);
-
-  --card-hover-shadow: 0 20px 60px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,153,187,0.15);
-
-  --noise-opacity: 0.015;
+  --bg:              #f2f2f0;
+  --bg-alt:          #e9e9e7;
+  --surface:         #ffffff;
+  --surface-alt:     #f8f8f6;
+  --border:          #d8d8d8;
+  --border-hover:    #b8b8b8;
+  --accent:          #0088aa;
+  --accent-dim:      rgba(0,136,170,0.10);
+  --accent-glow:     rgba(0,136,170,0.05);
+  --text:            #111111;
+  --text-dim:        #3a3a3a;
+  --text-muted:      #666666;
+  --text-subtle:     #999999;
+  --text-ghost:      #c8c8c8;
+  --success:         #007a40;
+  --warning:         #b45309;
+  --error:           #cc1133;
+  --scrollbar-track: #e9e9e7;
+  --scrollbar-thumb: rgba(0,136,170,0.20);
+  --grid-line:       rgba(0,100,130,0.05);
+  --card-shadow:     0 20px 60px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,136,170,0.12);
+  --noise-opacity:   0.012;
+  --gradient-start:  #005f88;
+  --gradient-end:    #0099bb;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    RESET & BASE
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -93,20 +85,20 @@ body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   cursor: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    SCROLLBAR
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
 ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); opacity: 0.4; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); opacity: 0.5; }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    CUSTOM CURSOR
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 .cursor {
   position: fixed;
   width: 8px;
@@ -117,7 +109,6 @@ body {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
-  mix-blend-mode: difference;
 }
 
 .cursor-follower {
@@ -130,12 +121,12 @@ body {
   z-index: 9998;
   transform: translate(-50%, -50%);
   transition: all 0.15s ease;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    SELECTION & FOCUS
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 ::selection {
   background: var(--accent-dim);
   color: var(--accent);
@@ -146,9 +137,9 @@ body {
   outline-offset: 2px;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    NOISE OVERLAY
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 body::before {
   content: '';
   position: fixed;
@@ -157,11 +148,12 @@ body::before {
   pointer-events: none;
   z-index: 1000;
   opacity: var(--noise-opacity);
+  transition: opacity 0.35s ease;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    GRID BACKGROUND
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 .grid-bg {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
@@ -169,51 +161,40 @@ body::before {
   background-size: 50px 50px;
 }
 
-/* ─────────────────────────────────────────────
-   TYPOGRAPHY UTILITIES
-   ───────────────────────────────────────────── */
-.font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
-.font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
-
+/* ═══════════════════════════════════════════════════════
+   GRADIENT TEXT  — uses CSS vars so it auto-switches
+═══════════════════════════════════════════════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 50%, var(--accent) 100%);
-  background: linear-gradient(135deg, #00d4ff 0%, #0099bb 100%);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-html[data-theme="light"] .gradient-text {
-  background: linear-gradient(135deg, #0077aa 0%, #0099bb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ─────────────────────────────────────────────
-   GLOW UTILITIES
-   ───────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════
+   GLOW
+═══════════════════════════════════════════════════════ */
 .glow-text {
-  text-shadow: 0 0 20px rgba(0,212,255,0.4), 0 0 40px rgba(0,212,255,0.2);
+  text-shadow: 0 0 20px rgba(0,212,255,0.35), 0 0 40px rgba(0,212,255,0.15);
 }
 html[data-theme="light"] .glow-text {
-  text-shadow: 0 0 12px rgba(0,153,187,0.3);
+  text-shadow: 0 0 10px rgba(0,136,170,0.25);
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    CARD HOVER
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 .project-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--card-hover-shadow);
+  box-shadow: var(--card-shadow);
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    ANIMATED UNDERLINE
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 .animated-underline { position: relative; }
 .animated-underline::after {
   content: '';
@@ -227,35 +208,45 @@ html[data-theme="light"] .glow-text {
 }
 .animated-underline:hover::after { width: 100%; }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    SCANLINE
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 .scanline::after {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent);
   animation: scan 4s linear infinite;
 }
 
-/* ─────────────────────────────────────────────
-   THEME TRANSITION (no flash on load)
-   ───────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════
+   SMOOTH THEME TRANSITION CLASS
+═══════════════════════════════════════════════════════ */
 html.theme-transitioning,
-html.theme-transitioning * {
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
   transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease !important;
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.35s ease !important;
 }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
+   LIGHT-MODE CURSOR TWEAK
+═══════════════════════════════════════════════════════ */
+html[data-theme="light"] .cursor {
+  mix-blend-mode: multiply;
+}
+
+/* ═══════════════════════════════════════════════════════
    REDUCE MOTION
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -265,52 +256,36 @@ html.theme-transitioning * {
   .cursor, .cursor-follower { display: none; }
 }
 
-/* ─────────────────────────────────────────────
-   LIGHT MODE SPECIFICS
-   ───────────────────────────────────────────── */
-html[data-theme="light"] body {
-  cursor: none;
-}
-
-html[data-theme="light"] .cursor {
-  background: var(--accent);
-  mix-blend-mode: multiply;
-}
-
-html[data-theme="light"] ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
-
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════════════
    KEYFRAMES
-   ───────────────────────────────────────────── */
+═══════════════════════════════════════════════════════ */
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 @keyframes pulse-slow {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  50%       { opacity: 0.4; }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-10px); }
 }
 @keyframes scan {
-  0% { transform: translateY(-100%); }
+  0%   { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0);     }
 }
 
-.animate-blink { animation: blink 1s step-end infinite; }
-.animate-pulse-slow { animation: pulse-slow 3s ease infinite; }
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-fade-in { animation: fadeIn 0.6s ease forwards; }
-.animate-slide-up { animation: slideUp 0.6s ease forwards; }
+.animate-blink     { animation: blink      1s step-end infinite; }
+.animate-pulse-slow{ animation: pulse-slow 3s ease     infinite; }
+.animate-float     { animation: float      6s ease-in-out infinite; }
+.animate-fade-in   { animation: fadeIn     0.6s ease   forwards; }
+.animate-slide-up  { animation: slideUp    0.6s ease   forwards; }

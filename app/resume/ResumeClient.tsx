@@ -52,28 +52,46 @@ export default function ResumeClient() {
       {/* ── Print styles injected inline so no extra CSS file needed ── */}
       <style>{`
         @media print {
-          body { background: white !important; color: black !important; cursor: auto !important; }
+          body {
+            background: white !important;
+            color: #111 !important;
+            cursor: auto !important;
+          }
           body::before { display: none !important; }
-          .no-print { display: none !important; }
+          .no-print    { display: none !important; }
+          .cursor, .cursor-follower { display: none !important; }
+
           .print-page {
             max-width: 100% !important;
             margin: 0 !important;
-            padding: 0.5in 0.6in !important;
+            padding: 0.45in 0.6in !important;
             box-shadow: none !important;
             border: none !important;
             background: white !important;
           }
-          :root, html[data-theme="dark"], html[data-theme="light"] {
-            --bg: white !important;
-            --surface: white !important;
-            --border: #cccccc !important;
-            --accent: #0077aa !important;
-            --text: #111111 !important;
-            --text-dim: #333333 !important;
-            --text-muted: #555555 !important;
-            --text-subtle: #888888 !important;
-            --success: #007733 !important;
+
+          /* Force light values for print regardless of current theme */
+          :root,
+          html[data-theme="dark"],
+          html[data-theme="light"] {
+            --bg:          white        !important;
+            --bg-alt:      white        !important;
+            --surface:     white        !important;
+            --surface-alt: #fafafa      !important;
+            --border:      #cccccc      !important;
+            --border-hover:#bbbbbb      !important;
+            --accent:      #005f88      !important;
+            --accent-dim:  rgba(0,95,136,0.08) !important;
+            --text:        #111111      !important;
+            --text-dim:    #333333      !important;
+            --text-muted:  #555555      !important;
+            --text-subtle: #777777      !important;
+            --text-ghost:  #aaaaaa      !important;
+            --success:     #007733      !important;
+            --gradient-start: #005f88   !important;
+            --gradient-end:   #0099bb   !important;
           }
+
           a { color: inherit !important; text-decoration: none !important; }
           * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
