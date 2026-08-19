@@ -22,7 +22,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       <span
         className={`
           absolute inset-0.5 rounded-full transition-all duration-300
-          ${theme === "light" ? "bg-[var(--accent-dim)]" : "bg-transparent"}
+          ${theme === "light" ? "bg-[var(--accent-dim)]" : "bg-[var(--surface-alt)]"}
         `}
       />
 
@@ -35,9 +35,9 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
         `}
       >
         {theme === "dark" ? (
-          <Moon size={10} className="text-[var(--bg)] stroke-[2.5]" />
+          <Moon size={11} className="text-[#0a0a0a] stroke-[2.5]" />
         ) : (
-          <Sun size={10} className="text-[var(--bg)] stroke-[2.5]" />
+          <Sun size={11} className="text-white stroke-[2.5]" />
         )}
       </span>
 

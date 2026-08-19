@@ -47,10 +47,10 @@ export default function TechStack() {
             <button
               key={cat.key}
               onClick={() => setActive(cat.key)}
-              className={`font-mono text-xs px-4 py-2 border transition-all ${
+              className={`font-mono text-xs px-4 py-2 border transition-all shadow-xs ${
                 active === cat.key
-                  ? "border-[var(--accent)]/60 text-[var(--accent)] bg-[var(--accent-dim)]"
-                  : "border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--border-hover)] hover:text-[var(--text-dim)]"
+                  ? "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-dim)] font-semibold"
+                  : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:border-[var(--border-hover)] hover:text-[var(--text-dim)]"
               }`}
             >
               {cat.label}
@@ -65,16 +65,16 @@ export default function TechStack() {
             return (
               <div
                 key={item.name}
-                className="border border-[var(--border)] bg-[var(--surface)] p-4 hover:border-[var(--accent)]/20 transition-all group"
+                className="border border-[var(--border)] bg-[var(--surface)] p-4 hover:border-[var(--accent)]/40 hover:shadow-xs transition-all group shadow-xs"
               >
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-sm text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+                  <span className="font-mono text-sm text-[var(--text)] group-hover:text-[var(--accent)] transition-colors font-medium">
                     {item.icon && <span className="mr-2">{item.icon}</span>}
                     {item.name}
                   </span>
-                  <span className="font-mono text-[10px] text-[var(--text-muted)]">{level.label}</span>
+                  <span className="font-mono text-[10px] text-[var(--text-muted)] font-medium">{level.label}</span>
                 </div>
-                <div className="h-1 bg-[var(--border)] rounded-full overflow-hidden">
+                <div className="h-1.5 bg-[var(--surface-alt)] border border-[var(--border)]/60 rounded-full overflow-hidden">
                   <div
                     className={`h-full bg-[var(--accent)] ${level.opacity} rounded-full transition-all duration-700`}
                     style={{ width: level.pct }}

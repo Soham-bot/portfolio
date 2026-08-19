@@ -16,19 +16,19 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Identity JSON card */}
           <div className="space-y-8">
-            <div className="border border-[var(--border)] p-8 relative hover:border-[var(--accent)]/20 transition-colors bg-[var(--surface)]">
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/60" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/20" />
-              <div className="font-mono text-xs text-[var(--text-muted)] mb-6">IDENTITY.JSON</div>
+            <div className="border border-[var(--border)] p-8 relative hover:border-[var(--accent)]/30 transition-all bg-[var(--surface)] shadow-xs">
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/70" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/30" />
+              <div className="font-mono text-xs text-[var(--text-muted)] mb-6 font-medium">IDENTITY.JSON</div>
               <div className="space-y-3 font-mono text-sm">
-                <div><span className="text-[var(--accent)]/70">&quot;name&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.name}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;age&quot;:</span> <span className="text-[var(--success)]">{PERSONAL.age}</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;location&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.location}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;university&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.university}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;degree&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.degree}, {PERSONAL.year}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;graduation&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.graduation}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;focus&quot;:</span> <span className="text-[var(--text)]">[&quot;Cloud&quot;, &quot;DevOps&quot;, &quot;Full Stack&quot;, &quot;AI/ML&quot;]</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)]/70">&quot;fun_fact&quot;:</span> <span className="text-[var(--text-dim)]">&quot;{PERSONAL.funFact}&quot;</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;name&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.name}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;age&quot;:</span> <span className="text-[var(--success)] font-semibold">{PERSONAL.age}</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;location&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.location}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;university&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.university}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;degree&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.degree}, {PERSONAL.year}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;graduation&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.graduation}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;focus&quot;:</span> <span className="text-[var(--text)]">[&quot;Cloud&quot;, &quot;DevOps&quot;, &quot;Full Stack&quot;, &quot;AI/ML&quot;]</span><span className="text-[var(--text-subtle)]">,</span></div>
+                <div><span className="text-[var(--accent)] font-medium">&quot;fun_fact&quot;:</span> <span className="text-[var(--text-dim)]">&quot;{PERSONAL.funFact}&quot;</span></div>
               </div>
             </div>
 
@@ -41,10 +41,10 @@ export default function About() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-2 border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text-dim)] hover:text-[var(--accent)] hover:border-[var(--accent)]/20 transition-all"
+                  className="flex items-center gap-2.5 border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text-dim)] hover:text-[var(--accent)] hover:border-[var(--accent)]/30 hover:bg-[var(--surface-alt)] transition-all shadow-xs"
                 >
                   <span className="text-[var(--accent)]">{item.icon}</span>
-                  <span className="font-mono text-xs">{item.label}</span>
+                  <span className="font-mono text-xs font-medium">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -65,10 +65,10 @@ export default function About() {
               <p>The non-technical side isn&apos;t decoration. Running events, creating content, coordinating teams — that&apos;s still system design, just for humans.</p>
             </div>
 
-            <div className="border border-[var(--border)] bg-[var(--surface)] p-4 mt-6">
+            <div className="border border-[var(--border)] bg-[var(--surface)] p-5 mt-6 shadow-xs">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse-slow" />
-                <span className="font-mono text-xs text-[var(--success)]">CURRENTLY ACTIVE</span>
+                <span className="font-mono text-xs text-[var(--success)] font-semibold">CURRENTLY ACTIVE</span>
               </div>
               <div className="space-y-2 font-mono text-xs text-[var(--text-muted)]">
                 {[
@@ -78,7 +78,7 @@ export default function About() {
                   "3rd Year B.Tech CSE @ ITM Skills University",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <span className="text-[var(--accent)]">→</span>
+                    <span className="text-[var(--accent)] font-bold">→</span>
                     <span>{item}</span>
                   </div>
                 ))}

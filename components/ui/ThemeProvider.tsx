@@ -10,9 +10,9 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
+  theme: "light",
   toggle: () => {},
-  isDark: true,
+  isDark: false,
 });
 
 export function useTheme() {
@@ -20,7 +20,6 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Start with dark — the inline script in layout handles the real init
   const [theme, setTheme] = useState<Theme>("light");
 
   // On mount, read what the inline script already applied

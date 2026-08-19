@@ -14,7 +14,7 @@ const COMMANDS: Record<string, () => string | string[]> = {
   email: () => ["","  sohmaro2006@gmail.com",""],
   resume: () => ["","  → /resume.pdf (Download from Contact section)",""],
   hackathons: () => ["","  ● Mumbai Hacks 2024      → Selected","  ● Smart India Hackathon  → Selected","  ● Avalanche Hackathon    → Participant","  ● Build & Grow AI 2.0   → Participant","  ● DevFest 2025           → Community",""],
-  status: () => ["","  [✓] Frontend    RUNNING","  [✓] DevOps Stack DEPLOYED","  [✓] Learning    ALWAYS ON","  [✓] Coffee      ADEQUATE","",`  Build: ${new Date().toISOString()}`,`  Theme: ${typeof window !== "undefined" ? document.documentElement.getAttribute("data-theme") || "dark" : "dark"}`, ""],
+  status: () => ["","  [✓] Frontend    RUNNING","  [✓] DevOps Stack DEPLOYED","  [✓] Learning    ALWAYS ON","  [✓] Coffee      ADEQUATE","",`  Build: ${new Date().toISOString()}`,`  Theme: ${typeof window !== "undefined" ? document.documentElement.getAttribute("data-theme") || "light" : "light"}`, ""],
   omnigrid: () => ["","  PROJECT OMNIGRID ───────────────────────────","  Python · Docker · Kubernetes · Minikube","  Terraform · Jenkins · Prometheus · Grafana","  ELK Stack · HashiCorp Vault","","  Jenkins → Docker → K8s (3x replicas, self-heal)","  Vault for secrets · Terraform for IaC","  Full environment reconstructable from scratch","","  → https://github.com/Soham-bot/project-omnigrid",""],
   "sudo hire soham": () => ["","  [sudo] password for recruiter: **************","","  Verifying credentials...","  Checking GitHub activity... ✓","  Checking OmniGrid deployment... ✓","  Checking Kubernetes knowledge... ✓","  Checking coffee tolerance... ✓","","  ✅ PERMISSION GRANTED.","  Good decision. Soham is now hired.","  Send offer letter to: sohmaro2006@gmail.com",""],
   ls: () => ["","  ./about  ./projects  ./stack  ./journey  ./contact","  ./github  ./resume  ./field-record  ./lab",""],
@@ -79,9 +79,9 @@ export default function SohamTerminal() {
           <div className="flex-1 h-px bg-[var(--border)]" />
         </div>
 
-        <div className="border border-[var(--border)] hover:border-[var(--accent)]/20 transition-colors" role="region" aria-label="Interactive terminal">
+        <div className="border border-[var(--border)] hover:border-[var(--accent)]/40 transition-all rounded-xs shadow-md overflow-hidden" role="region" aria-label="Interactive terminal">
           {/* Title bar */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border)] bg-[var(--surface)]">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border)] bg-[var(--surface-alt)]">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
               <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
@@ -89,7 +89,7 @@ export default function SohamTerminal() {
             </div>
             <div className="flex items-center gap-2">
               <TerminalIcon size={12} className="text-[var(--text-muted)]" />
-              <span className="font-mono text-[10px] text-[var(--text-muted)]">soham@portfolio:~</span>
+              <span className="font-mono text-[10px] text-[var(--text-muted)] font-medium">soham@portfolio:~</span>
             </div>
             <button onClick={() => setMinimized(!minimized)}
               className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
@@ -100,26 +100,26 @@ export default function SohamTerminal() {
 
           {!minimized && (
             <div
-              className="p-4 min-h-[280px] max-h-[400px] overflow-y-auto font-mono text-xs cursor-text bg-[var(--bg)]"
+              className="p-4 min-h-[280px] max-h-[400px] overflow-y-auto font-mono text-xs cursor-text bg-[var(--surface)]"
               onClick={() => inputRef.current?.focus()}
             >
               {history.map((line, i) => (
                 <div key={i} className={`leading-5 whitespace-pre-wrap ${
-                  line.type === "input"   ? "text-[var(--accent)]"   :
+                  line.type === "input"   ? "text-[var(--accent)] font-semibold"   :
                   line.type === "error"   ? "text-[var(--error)]"    :
-                  line.type === "success" ? "text-[var(--success)]"  :
+                  line.type === "success" ? "text-[var(--success)] font-medium"  :
                   line.type === "system"  ? "text-[var(--text-muted)]" :
                   "text-[var(--text-dim)]"
                 }`}>{line.text}</div>
               ))}
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-[var(--accent)] flex-shrink-0">$</span>
+                <span className="text-[var(--accent)] flex-shrink-0 font-bold">$</span>
                 <input
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={onKeyDown}
-                  className="flex-1 bg-transparent text-[var(--accent)] outline-none caret-[var(--accent)] font-mono text-xs"
+                  className="flex-1 bg-transparent text-[var(--text)] outline-none caret-[var(--accent)] font-mono text-xs placeholder:text-[var(--text-subtle)]"
                   placeholder="type a command..."
                   aria-label="Terminal input"
                   autoComplete="off"
@@ -130,7 +130,7 @@ export default function SohamTerminal() {
             </div>
           )}
         </div>
-        <p className="font-mono text-[10px] text-[var(--text-ghost)] mt-3 text-center">
+        <p className="font-mono text-[10px] text-[var(--text-muted)] mt-3 text-center">
           Try: help · about · projects · omnigrid · sudo hire soham
         </p>
       </div>

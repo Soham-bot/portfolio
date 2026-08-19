@@ -34,13 +34,13 @@ export default function Contact() {
               ].map((item) => (
                 <a key={item.label} href={item.href} target={item.label !== "EMAIL" ? "_blank" : undefined}
                   rel={item.label !== "EMAIL" ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 border border-[var(--border)] bg-[var(--surface)] p-4 hover:border-[var(--accent)]/30 hover:bg-[var(--surface-alt)] transition-all group">
+                  className="flex items-center gap-3 border border-[var(--border)] bg-[var(--surface)] p-4 hover:border-[var(--accent)]/40 hover:bg-[var(--surface-alt)] transition-all group shadow-xs">
                   <span className="text-[var(--accent)]">{item.icon}</span>
                   <div>
                     <div className="font-mono text-xs text-[var(--text-muted)] mb-0.5">{item.label}</div>
-                    <div className="font-mono text-sm text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">{item.value}</div>
+                    <div className="font-mono text-sm text-[var(--text)] group-hover:text-[var(--accent)] transition-colors font-medium">{item.value}</div>
                   </div>
-                  <ExternalLink size={12} className="ml-auto text-[var(--text-subtle)] group-hover:text-[var(--accent)]" />
+                  <ExternalLink size={13} className="ml-auto text-[var(--text-subtle)] group-hover:text-[var(--accent)]" />
                 </a>
               ))}
             </div>
@@ -48,19 +48,19 @@ export default function Contact() {
 
           <div className="space-y-4">
             <a href="/resume"
-              className="flex items-center justify-between border border-[var(--accent)]/30 bg-[var(--surface)] p-6 hover:bg-[var(--accent-dim)] transition-all group w-full">
+              className="flex items-center justify-between border border-[var(--accent)]/40 bg-[var(--surface)] p-6 hover:bg-[var(--accent-dim)] transition-all group w-full shadow-xs hover:shadow-md">
               <div>
-                <div className="font-mono text-xs text-[var(--accent)]/60 mb-1">RESUME</div>
+                <div className="font-mono text-xs text-[var(--accent)] mb-1 font-medium">RESUME</div>
                 <div className="font-display text-lg font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">View &amp; Download Resume</div>
                 <div className="font-mono text-xs text-[var(--text-muted)] mt-1">View online · Print as PDF · Updated 2026</div>
               </div>
-              <Download size={24} className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] transition-colors" />
+              <Download size={24} className="text-[var(--accent)] group-hover:scale-110 transition-transform" />
             </a>
 
-            <div className="border border-[var(--border)] bg-[var(--surface)] p-6">
+            <div className="border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse-slow" />
-                <span className="font-mono text-xs text-[var(--success)]">SYSTEM ONLINE</span>
+                <span className="font-mono text-xs text-[var(--success)] font-semibold">SYSTEM ONLINE</span>
               </div>
               <div className="font-mono text-xs text-[var(--text-muted)] space-y-2">
                 {[
@@ -71,15 +71,15 @@ export default function Contact() {
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between">
                     <span>{k}</span>
-                    <span className="text-[var(--text-dim)]">{v}</span>
+                    <span className="text-[var(--text)] font-medium">{v}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="border border-dashed border-[var(--border)] p-4 text-center">
-              <span className="font-mono text-[10px] text-[var(--text-ghost)]">
-                Try typing <span className="text-[var(--text-subtle)]">$ help</span> in the terminal above ↑
+            <div className="border border-dashed border-[var(--border)] bg-[var(--surface)] p-4 text-center shadow-xs">
+              <span className="font-mono text-[11px] text-[var(--text-muted)]">
+                Try typing <span className="text-[var(--accent)] font-semibold">$ help</span> in the terminal above ↑
               </span>
             </div>
           </div>

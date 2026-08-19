@@ -20,17 +20,17 @@ export default function DevMode() {
   if (!active) {
     return (
       <button onClick={() => setActive(true)}
-        className="fixed bottom-6 right-6 z-40 border border-[var(--border)] bg-[var(--surface)] p-2.5 text-[var(--text-subtle)] hover:text-[var(--accent)] hover:border-[var(--accent)]/30 transition-all"
+        className="fixed bottom-6 right-6 z-40 border border-[var(--border)] bg-[var(--surface)] p-2.5 text-[var(--text-muted)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-all shadow-md rounded-xs"
         aria-label="Dev Mode" title="Dev Mode (or try Konami code)">
-        <Code2 size={14} />
+        <Code2 size={15} />
       </button>
     );
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 border border-[var(--accent)]/30 bg-[var(--surface)] font-mono text-xs w-64 shadow-lg">
-      <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--border)]">
-        <span className="text-[var(--accent)] text-[10px]">SOHAM PORTFOLIO // DEV MODE</span>
+    <div className="fixed bottom-6 right-6 z-40 border border-[var(--accent)]/40 bg-[var(--surface)] font-mono text-xs w-64 shadow-xl rounded-xs overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--border)] bg-[var(--surface-alt)]">
+        <span className="text-[var(--accent)] text-[10px] font-semibold">SOHAM PORTFOLIO // DEV MODE</span>
         <button onClick={() => setActive(false)} className="text-[var(--text-muted)] hover:text-[var(--accent)]">
           <X size={12} />
         </button>
@@ -45,12 +45,12 @@ export default function DevMode() {
           ["Accessibility","✓ ARIA + kbd"   ],
           ["Build Status", "✓ SUCCESS"      ],
         ].map(([k, v]) => (
-          <div key={k} className="flex justify-between">
+          <div key={k} className="flex justify-between font-medium">
             <span>{k}</span>
             <span className="text-[var(--success)]">{v}</span>
           </div>
         ))}
-        <div className="pt-2 border-t border-[var(--border)] text-[10px] text-[var(--text-ghost)]">
+        <div className="pt-2 border-t border-[var(--border)] text-[10px] text-[var(--text-muted)]">
           <div>Konami code → unlocked this</div>
           <div className="mt-1">&apos;$ sudo hire soham&apos; in terminal</div>
         </div>

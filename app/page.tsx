@@ -58,16 +58,15 @@ export default function Home() {
   if (!loaded) {
     return (
       <div
-        className="fixed inset-0 flex flex-col items-center justify-center z-50 font-mono"
-        style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+        className="fixed inset-0 flex flex-col items-center justify-center z-50 font-mono bg-[var(--bg)] text-[var(--text)]"
       >
         <div className="w-full max-w-md px-8">
           {/* Header */}
           <div className="mb-6">
-            <div style={{ color: "var(--accent)" }} className="text-xs mb-1">
+            <div className="text-xs mb-1 font-bold tracking-wider text-[var(--accent)]">
               SOHAM-OS v2026
             </div>
-            <div style={{ color: "var(--text-muted)" }} className="text-xs">
+            <div className="text-xs font-medium text-[var(--text-muted)]">
               Initializing portfolio system...
             </div>
           </div>
@@ -76,7 +75,7 @@ export default function Home() {
           <div className="space-y-1.5 text-xs mb-8">
             {BOOT_STEPS.map((step) =>
               progress >= step.at ? (
-                <div key={step.text} style={{ color: "var(--success)" }}>
+                <div key={step.text} className="text-[var(--success)] font-medium">
                   {step.text}
                 </div>
               ) : null
@@ -84,22 +83,15 @@ export default function Home() {
           </div>
 
           {/* Progress bar */}
-          <div
-            className="h-px w-full relative overflow-hidden"
-            style={{ backgroundColor: "var(--border)" }}
-          >
+          <div className="h-1.5 w-full relative overflow-hidden rounded-full bg-[var(--surface-alt)] border border-[var(--border)]">
             <div
-              className="h-full transition-all duration-75"
+              className="h-full transition-all duration-75 rounded-full bg-[var(--accent)]"
               style={{
                 width: `${Math.min(progress, 100)}%`,
-                backgroundColor: "var(--accent)",
               }}
             />
           </div>
-          <div
-            className="text-[10px] mt-2 text-right"
-            style={{ color: "var(--text-subtle)" }}
-          >
+          <div className="text-[11px] mt-2 text-right font-medium text-[var(--text-muted)]">
             {Math.min(Math.floor(progress), 100)}%
           </div>
         </div>

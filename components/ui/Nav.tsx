@@ -26,18 +26,18 @@ export default function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)]"
-          : ""
+          ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)] shadow-xs"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#hero"
-          className="font-mono text-sm text-[var(--accent)] tracking-wider hover:opacity-80 transition-opacity"
+          className="font-mono text-sm text-[var(--accent)] tracking-wider hover:opacity-80 transition-opacity font-semibold"
         >
-          <span className="text-[var(--text-muted)]">// </span>SOHAM
-          <span className="animate-blink">_</span>
+          <span className="text-[var(--text-muted)] font-normal">// </span>SOHAM
+          <span className="animate-blink text-[var(--accent)]">_</span>
         </a>
 
         {/* Desktop nav */}
@@ -57,7 +57,7 @@ export default function Nav() {
 
           <a
             href="#contact"
-            className="font-mono text-xs border border-[var(--accent)]/40 text-[var(--accent)] px-4 py-2 hover:bg-[var(--accent-dim)] transition-all"
+            className="font-mono text-xs border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--surface)] px-4 py-2 hover:bg-[var(--accent-dim)] transition-all shadow-xs"
           >
             Hire Me ↗
           </a>

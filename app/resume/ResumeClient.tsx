@@ -109,7 +109,7 @@ export default function ResumeClient() {
           </span>
           <button
             onClick={handlePrint}
-            className="flex items-center gap-2 font-mono text-xs bg-[var(--accent)] text-[var(--bg)] px-4 py-2 hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 font-mono text-xs bg-[var(--accent)] text-white px-4 py-2 hover:opacity-90 transition-opacity font-semibold shadow-xs"
           >
             <Download size={12} /> Print / Save PDF
           </button>
@@ -430,11 +430,11 @@ export default function ResumeClient() {
         {/* ── Screen-only: bottom CTA ── */}
         <div className="no-print max-w-[820px] mx-auto mt-6 flex flex-wrap gap-3 justify-center">
           <button onClick={handlePrint}
-            className="flex items-center gap-2 font-mono text-xs bg-[var(--accent)] text-[var(--bg)] px-6 py-3 hover:opacity-90 transition-opacity">
+            className="flex items-center gap-2 font-mono text-xs bg-[var(--accent)] text-white px-6 py-3 hover:opacity-90 transition-opacity font-semibold shadow-xs">
             <Download size={14} /> Save as PDF
           </button>
           <Link href="/"
-            className="flex items-center gap-2 font-mono text-xs border border-[var(--border)] text-[var(--text-muted)] px-6 py-3 hover:border-[var(--accent)]/30 hover:text-[var(--accent)] transition-all">
+            className="flex items-center gap-2 font-mono text-xs border border-[var(--border)] bg-[var(--surface)] text-[var(--text-dim)] px-6 py-3 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-all shadow-xs">
             <ArrowLeft size={14} /> Back to Portfolio
           </Link>
         </div>

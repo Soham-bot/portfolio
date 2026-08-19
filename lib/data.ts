@@ -377,16 +377,133 @@ export const LAB_PROJECTS = [
   { name: "github123",    desc: "GitHub practice",                          lang: "Various",  year: "2024" },
 ];
 
-export const JOURNEY = [
-  { year: "2021–2023", phase: "Origin",      event: "Schooling & HSC completed. First exposure to computers and tech.", tech: ["Curiosity"] },
-  { year: "2024",      phase: "Foundation",  event: "Joined B.Tech CSE at ITM Skills University. First web projects + Git fundamentals.", tech: ["HTML","CSS","JavaScript","Git"] },
-  { year: "Mid 2024",  phase: "First Apps",  event: "Built VR Recommender & YT Downloader. Started ITM Buildathon 1.", tech: ["JavaScript","Firebase","Python","BST"] },
-  { year: "Late 2024", phase: "Full Stack",  event: "Deep dive into MERN stack. Built HealthLab & Sneaker Resale. REST APIs + MongoDB.", tech: ["Node.js","Express","MongoDB","React","REST APIs"] },
-  { year: "Early 2025",phase: "Cloud & AWS", event: "Entered AWS ecosystem. Built MusicNation with EC2/RDS/S3/CloudFront.", tech: ["AWS EC2","S3","RDS","CloudFront","Flask"] },
-  { year: "Mid 2025",  phase: "AI / ML",     event: "Social Media Well-being ML project. Mumbai Hacks, SIH, Mindsprint hackathons.", tech: ["KMeans","Linear Regression","Jupyter","Gemini","Prompt Engineering"] },
-  { year: "Late 2025", phase: "DevOps",      event: "Deep dive into containers, orchestration, CI/CD. Volunteered at DevFest, Cloud Community Days, GEN AI Hackathon.", tech: ["Docker","Kubernetes","Jenkins","Prometheus","Grafana"] },
-  { year: "Early 2026",phase: "Infra Engineering", event: "Built OmniGrid. Volunteered at Mumbai Tech Week 2026 @ IIT Bombay with Babblebots.", tech: ["Terraform","Vault","ELK","IaC","Minikube"] },
-  { year: "Now",       phase: "Systems Builder", event: "Building production-grade infrastructure. Cloud + DevOps + Full Stack.", tech: ["Kubernetes","Terraform","DevOps","Systems Design"] },
+export interface JourneyItem {
+  id: string;
+  year: string;
+  phase: string;
+  title: string;
+  category: "Foundation" | "Full Stack" | "Cloud" | "AI/ML" | "DevOps" | "Current";
+  event: string;
+  details: string;
+  breakthrough: string;
+  tech: string[];
+  status: "Completed" | "Mastered" | "Deployed" | "Active";
+  projectId?: string;
+}
+
+export const JOURNEY: JourneyItem[] = [
+  {
+    id: "origin",
+    year: "2021–2023",
+    phase: "Genesis",
+    title: "Origins & Computing Logic",
+    category: "Foundation",
+    event: "Schooling & HSC completed. First exposure to programming logic, algorithms, and computing fundamentals.",
+    details: "Dissected how computers work under the hood. Started building small scripts, understanding memory, logic gates, and the principles of algorithmic thinking.",
+    breakthrough: "Discovered passion for breaking systems down to first principles.",
+    tech: ["Computer Fundamentals", "C / C++ Basics", "Algorithmic Logic", "Linux Shell"],
+    status: "Completed",
+  },
+  {
+    id: "foundation",
+    year: "2024",
+    phase: "Foundation",
+    title: "CSE Induction & Git Workflows",
+    category: "Foundation",
+    event: "Joined B.Tech CSE at ITM Skills University. Built foundational web systems and professional version control workflows.",
+    details: "Mastered modern semantic HTML, CSS styling architectures, vanilla JavaScript ES6+, and collaborative Git/GitHub branching strategies.",
+    breakthrough: "Standardized clean code conventions and established daily GitHub commit habits.",
+    tech: ["HTML5", "CSS3", "JavaScript ES6+", "Git", "GitHub", "Responsive Design"],
+    status: "Mastered",
+  },
+  {
+    id: "first-apps",
+    year: "Mid 2024",
+    phase: "First Systems",
+    title: "Interactive Applications & Algorithms",
+    category: "Foundation",
+    event: "Built VR Recommender with BST data structures and YouTube Downloader CLI. Competed in ITM Buildathon 1.",
+    details: "Engineered a custom recommendation engine using Binary Search Trees for O(log n) efficiency, integrated Firebase Authentication and Firestore database.",
+    breakthrough: "Shipped first production-hosted web app with live user authentication.",
+    tech: ["JavaScript", "Firebase", "Firestore", "BST Algorithms", "Python CLI"],
+    status: "Deployed",
+    projectId: "vr-recommender",
+  },
+  {
+    id: "full-stack",
+    year: "Late 2024",
+    phase: "Full Stack",
+    title: "MERN Stack & Scalable API Architectures",
+    category: "Full Stack",
+    event: "Deep dive into MERN stack. Engineered HealthLab pathology management and Sneaker Resale platform.",
+    details: "Architected RESTful APIs with Express and Node.js, modeled complex MongoDB NoSQL schemas, implemented JWT authentication and role-based access control.",
+    breakthrough: "Built multi-user platforms with end-to-end CRUD operations and real database pipelines.",
+    tech: ["Node.js", "Express.js", "MongoDB", "React", "REST APIs", "JWT Auth"],
+    status: "Mastered",
+    projectId: "health-lab",
+  },
+  {
+    id: "cloud-aws",
+    year: "Early 2025",
+    phase: "Cloud & AWS",
+    title: "AWS Cloud Infrastructure & Distributed Storage",
+    category: "Cloud",
+    event: "Entered the AWS ecosystem. Architected MusicNation with multi-service AWS infrastructure.",
+    details: "Provisioned and connected EC2 compute instances, S3 object storage for media assets, RDS MySQL relational databases, and CloudFront CDN for global distribution.",
+    breakthrough: "Designed multi-tier cloud architectures with decoupled storage, compute, and CDN edge caching.",
+    tech: ["AWS EC2", "AWS S3", "AWS RDS", "CloudFront", "Flask", "IAM & VPC"],
+    status: "Deployed",
+    projectId: "musicnation",
+  },
+  {
+    id: "aiml",
+    year: "Mid 2025",
+    phase: "AI & Machine Learning",
+    title: "Applied ML Pipelines & Hackathon Selection",
+    category: "AI/ML",
+    event: "Built Social Media Well-being ML models. Selected in Smart India Hackathon (SIH), participated in Mumbai Hacks.",
+    details: "Implemented KMeans clustering for behavioral segmentation, linear regression for trend prediction, and integrated LLM APIs (Gemini) with prompt engineering.",
+    breakthrough: "Selected in Smart India Hackathon among thousands of national applicants.",
+    tech: ["KMeans", "Linear Regression", "Jupyter", "Gemini API", "Prompt Engineering"],
+    status: "Mastered",
+  },
+  {
+    id: "devops",
+    year: "Late 2025",
+    phase: "DevOps",
+    title: "Containerization, Orchestration & CI/CD",
+    category: "DevOps",
+    event: "Deep dive into DevOps toolchains. Volunteered at Google DevFest, Cloud Community Days, and GEN AI Hackathon.",
+    details: "Containerized microservices using Docker, orchestrated multi-pod deployments in Kubernetes, set up automated Jenkins pipelines, and built real-time Prometheus/Grafana monitoring.",
+    breakthrough: "Mastered self-healing Kubernetes pod deployments and automated CI/CD pipeline triggers.",
+    tech: ["Docker", "Kubernetes", "Jenkins", "Prometheus", "Grafana"],
+    status: "Mastered",
+  },
+  {
+    id: "infrastructure",
+    year: "Early 2026",
+    phase: "Production Infra",
+    title: "Project OmniGrid & Enterprise DevOps",
+    category: "DevOps",
+    event: "Engineered Project OmniGrid. Volunteered 7 days on-site at IIT Bombay during Mumbai Tech Week with Babblebots.",
+    details: "Engineered enterprise-grade infrastructure: full Terraform Infrastructure as Code, HashiCorp Vault secrets management, ELK centralized logging, and multi-replica K8s clusters.",
+    breakthrough: "Entire infrastructure environment reconstructable from scratch via version-controlled IaC.",
+    tech: ["Terraform", "HashiCorp Vault", "ELK Stack", "Minikube", "IaC", "Jenkins"],
+    status: "Deployed",
+    projectId: "omnigrid",
+  },
+  {
+    id: "current",
+    year: "Present",
+    phase: "Systems Builder",
+    title: "Production Systems & Distributed Architectures",
+    category: "Current",
+    event: "Building production-grade cloud, DevOps, and full-stack systems. Open to impactful software engineering roles.",
+    details: "Focusing on high-availability cloud architecture, automated infrastructure pipelines, Kubernetes ecosystem depth, and scalable backend platforms.",
+    breakthrough: "Synthesizing Full Stack + Cloud + DevOps into unified, resilient systems engineering.",
+    tech: ["Kubernetes", "Terraform", "AWS", "Distributed Systems", "Full Stack", "System Design"],
+    status: "Active",
+  },
 ];
 
 // Corrected & enriched from resume PDF

@@ -27,27 +27,27 @@ export default function Lab() {
             </p>
           </div>
 
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2.5">
             {LAB_PROJECTS.map((item) => (
               <div key={item.name}
-                className="border border-[var(--border)] bg-[var(--surface)] px-4 py-3 flex items-center justify-between hover:border-[var(--accent)]/10 hover:bg-[var(--surface-alt)] transition-all group">
+                className="border border-[var(--border)] bg-[var(--surface)] px-4 py-3.5 flex items-center justify-between hover:border-[var(--accent)]/40 hover:bg-[var(--surface-alt)] transition-all group shadow-xs">
                 <div className="flex-1 min-w-0 mr-3">
-                  <div className="font-mono text-xs text-[var(--text)] group-hover:text-[var(--accent)] transition-colors truncate">{item.name}</div>
-                  <div className="font-mono text-[10px] text-[var(--text-subtle)] truncate mt-0.5">{item.desc}</div>
+                  <div className="font-mono text-xs text-[var(--text)] group-hover:text-[var(--accent)] transition-colors font-medium truncate">{item.name}</div>
+                  <div className="font-mono text-[10px] text-[var(--text-muted)] truncate mt-0.5">{item.desc}</div>
                 </div>
                 <div className="flex items-center gap-3 flex-shrink-0">
-                  <span className="font-mono text-[10px] text-[var(--text-ghost)]">{item.lang}</span>
+                  <span className="font-mono text-[10px] text-[var(--text-subtle)] font-medium">{item.lang}</span>
                   <a href={`https://github.com/Soham-bot/${item.name}`} target="_blank" rel="noopener noreferrer"
-                    className="text-[var(--text-subtle)] hover:text-[var(--accent)] transition-colors" aria-label={`View ${item.name} on GitHub`}>
-                    <Github size={12} />
+                    className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors" aria-label={`View ${item.name} on GitHub`}>
+                    <Github size={13} />
                   </a>
                 </div>
               </div>
             ))}
-            <div className="border border-dashed border-[var(--border)] px-4 py-3 flex items-center justify-between md:col-span-2 hover:border-[var(--accent)]/10 transition-colors">
-              <span className="font-mono text-xs text-[var(--text-subtle)]">+ more experiments on GitHub</span>
+            <div className="border border-dashed border-[var(--border)] bg-[var(--surface)] px-4 py-3.5 flex items-center justify-between md:col-span-2 hover:border-[var(--accent)]/40 transition-all shadow-xs">
+              <span className="font-mono text-xs text-[var(--text-muted)]">+ more experiments on GitHub</span>
               <a href="https://github.com/Soham-bot?tab=repositories" target="_blank" rel="noopener noreferrer"
-                className="font-mono text-[10px] text-[var(--accent)]/60 hover:text-[var(--accent)] transition-colors">
+                className="font-mono text-xs text-[var(--accent)] hover:underline transition-colors font-medium">
                 browse all →
               </a>
             </div>

@@ -52,22 +52,22 @@ export default function Hero() {
       <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/[0.04] rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
 
       {/* System status bar */}
-      <div className="absolute top-0 left-0 right-0 pt-20 px-6 flex justify-between items-center opacity-30 pointer-events-none">
-        <span className="font-mono text-xs text-[var(--success)]">● SYSTEM ONLINE</span>
+      <div className="absolute top-0 left-0 right-0 pt-20 px-6 flex justify-between items-center opacity-70 dark:opacity-30 pointer-events-none">
+        <span className="font-mono text-xs text-[var(--success)] font-medium">● SYSTEM ONLINE</span>
         <span className="font-mono text-xs text-[var(--text-muted)]">UPTIME: {uptime}</span>
         <span className="font-mono text-xs text-[var(--text-muted)]">v2026.08.19</span>
       </div>
 
       {/* Corner decorators */}
-      <div className="absolute top-24 left-6 w-8 h-8 border-t border-l border-[var(--accent)]/20 pointer-events-none" />
-      <div className="absolute top-24 right-6 w-8 h-8 border-t border-r border-[var(--accent)]/20 pointer-events-none" />
-      <div className="absolute bottom-12 left-6 w-8 h-8 border-b border-l border-[var(--accent)]/20 pointer-events-none" />
-      <div className="absolute bottom-12 right-6 w-8 h-8 border-b border-r border-[var(--accent)]/20 pointer-events-none" />
+      <div className="absolute top-24 left-6 w-8 h-8 border-t border-l border-[var(--accent)]/30 pointer-events-none" />
+      <div className="absolute top-24 right-6 w-8 h-8 border-t border-r border-[var(--accent)]/30 pointer-events-none" />
+      <div className="absolute bottom-12 left-6 w-8 h-8 border-b border-l border-[var(--accent)]/30 pointer-events-none" />
+      <div className="absolute bottom-12 right-6 w-8 h-8 border-b border-r border-[var(--accent)]/30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         {/* System label */}
-        <div className="font-mono text-xs text-[var(--text-subtle)] mb-6 flex items-center gap-3">
-          <span className="w-8 h-px bg-[var(--accent)]/40" />
+        <div className="font-mono text-xs text-[var(--text-muted)] mb-6 flex items-center gap-3">
+          <span className="w-8 h-px bg-[var(--accent)]/60" />
           <span>SOHAM-BOT // PORTFOLIO_OS // BOOT_SEQUENCE_COMPLETE</span>
         </div>
 
@@ -83,7 +83,7 @@ export default function Hero() {
 
         {/* Status line */}
         <div className="font-mono text-base text-[var(--text-dim)] mb-3 flex items-center gap-2">
-          <span className="text-[var(--accent)]">STATUS:</span>
+          <span className="text-[var(--accent)] font-semibold">STATUS:</span>
           <span className="text-[var(--text)]">{displayed}</span>
           <span className="animate-blink text-[var(--accent)]">█</span>
         </div>
@@ -102,7 +102,7 @@ export default function Hero() {
           {["Software Developer", "Cloud", "DevOps", "Full Stack", "AI/ML"].map((tag) => (
             <span
               key={tag}
-              className="font-mono text-xs border border-[var(--accent)]/20 text-[var(--accent)]/70 px-3 py-1 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-all"
+              className="font-mono text-xs border border-[var(--accent)]/30 text-[var(--accent)] bg-[var(--surface)] px-3 py-1 hover:border-[var(--accent)]/60 hover:bg-[var(--accent-dim)] transition-all shadow-xs"
             >
               {tag}
             </span>
@@ -113,14 +113,14 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4 mb-16">
           <a
             href="#projects"
-            className="group font-mono text-sm bg-[var(--accent)] text-[var(--bg)] px-6 py-3 font-semibold hover:opacity-90 transition-all flex items-center gap-2"
+            className="group font-mono text-sm bg-[var(--accent)] text-white px-6 py-3 font-semibold hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
           >
             Explore Systems
             <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
           </a>
           <a
             href="/resume"
-            className="font-mono text-sm border border-[var(--accent)]/40 text-[var(--accent)] px-6 py-3 hover:bg-[var(--accent-dim)] transition-all flex items-center gap-2"
+            className="font-mono text-sm border border-[var(--accent)]/40 bg-[var(--surface)] text-[var(--accent)] px-6 py-3 hover:bg-[var(--accent-dim)] transition-all flex items-center gap-2 shadow-xs"
           >
             Resume <ExternalLink size={14} />
           </a>
@@ -128,7 +128,7 @@ export default function Hero() {
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm border border-[var(--border)] text-[var(--text-muted)] px-6 py-3 hover:border-[var(--accent)]/30 hover:text-[var(--accent)] transition-all flex items-center gap-2"
+            className="font-mono text-sm border border-[var(--border)] bg-[var(--surface)] text-[var(--text-dim)] px-6 py-3 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-all flex items-center gap-2 shadow-xs"
           >
             <Github size={16} /> GitHub
           </a>
@@ -144,18 +144,18 @@ export default function Hero() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="border border-[var(--border)] p-3 hover:border-[var(--accent)]/20 transition-colors bg-[var(--surface)]/50"
+              className="border border-[var(--border)] p-3.5 hover:border-[var(--accent)]/30 transition-all bg-[var(--surface)] shadow-xs"
             >
               <div className="font-mono text-2xl font-bold text-[var(--text)] mb-1">{stat.value}</div>
-              <div className="font-mono text-[10px] text-[var(--text-muted)]">{stat.label}</div>
+              <div className="font-mono text-[10px] text-[var(--text-muted)] font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-        <span className="font-mono text-[10px] text-[var(--text-muted)]">SCROLL TO EXPLORE</span>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 dark:opacity-30">
+        <span className="font-mono text-[10px] text-[var(--text-muted)] font-medium">SCROLL TO EXPLORE</span>
         <div className="w-px h-8 bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent animate-pulse-slow" />
       </div>
 
