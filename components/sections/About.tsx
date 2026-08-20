@@ -1,91 +1,128 @@
 "use client";
-import { MapPin, GraduationCap, Code2, Zap } from "lucide-react";
-import { PERSONAL, SKILLS_NARRATIVE } from "../../lib/data";
+import { MapPin, GraduationCap, Terminal, Network, ShieldCheck, Award } from "lucide-react";
+import { PERSONAL } from "../../lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="py-32 relative bg-[var(--bg)]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-xs text-[var(--accent)]/60">01</span>
-          <div className="w-8 h-px bg-[var(--accent)]/40" />
-          <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest">Who TF Is Soham?</span>
-          <div className="flex-1 h-px bg-[var(--border)]" />
+    <section id="about" className="py-24 relative bg-[var(--bg)] border-b border-[var(--border)]">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="mb-10">
+          <div className="font-mono text-xs text-[var(--accent)] font-semibold mb-1">
+            // BACKGROUND &amp; STORY
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[var(--text)] mb-2">
+            The story so far.
+          </h2>
+          <p className="text-[var(--text-muted)] text-base max-w-xl">
+            Who I am, what I care about, and how I ended up orchestrating Kubernetes clusters.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Identity JSON card */}
-          <div className="space-y-8">
-            <div className="border border-[var(--border)] p-8 relative hover:border-[var(--accent)]/30 transition-all bg-[var(--surface)] shadow-xs">
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/70" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/30" />
-              <div className="font-mono text-xs text-[var(--text-muted)] mb-6 font-medium">IDENTITY.JSON</div>
-              <div className="space-y-3 font-mono text-sm">
-                <div><span className="text-[var(--accent)] font-medium">&quot;name&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.name}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;age&quot;:</span> <span className="text-[var(--success)] font-semibold">{PERSONAL.age}</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;location&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.location}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;university&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.university}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;degree&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.degree}, {PERSONAL.year}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;graduation&quot;:</span> <span className="text-[var(--text)]">&quot;{PERSONAL.graduation}&quot;</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;focus&quot;:</span> <span className="text-[var(--text)]">[&quot;Cloud&quot;, &quot;DevOps&quot;, &quot;Full Stack&quot;, &quot;AI/ML&quot;]</span><span className="text-[var(--text-subtle)]">,</span></div>
-                <div><span className="text-[var(--accent)] font-medium">&quot;fun_fact&quot;:</span> <span className="text-[var(--text-dim)]">&quot;{PERSONAL.funFact}&quot;</span></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          {/* Left Column: Academic & Identity Dossier (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            
+            <div className="workbench-card p-6">
+              <div className="font-mono text-xs font-bold text-[var(--accent)] mb-4 pb-2 border-b border-[var(--border)]">
+                ~/identity.json
+              </div>
+
+              <div className="space-y-3 font-mono text-xs text-[var(--text-dim)]">
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">College</span>
+                  <span className="font-semibold text-[var(--text)]">ITM Skills University</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Degree</span>
+                  <span className="font-semibold text-[var(--text)]">B.Tech CSE (2024–2028)</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Location</span>
+                  <span className="font-semibold text-[var(--text)]">Mumbai, Maharashtra</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Specialization</span>
+                  <span className="font-semibold text-[var(--accent)]">DevOps &amp; Cloud</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Repositories</span>
+                  <span className="font-semibold text-[var(--text)]">39 Shipped Projects</span>
+                </div>
+                <div className="pt-2">
+                  <span className="text-[var(--text-muted)] block mb-1">Philosophy</span>
+                  <span className="text-[var(--text)] font-medium block bg-[var(--surface-alt)] p-2.5 rounded-md border border-[var(--border)]">
+                    &ldquo;Building resilient, distributed cloud architectures engineered with first-principles discipline.&rdquo;
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            {/* Quick Proof Chips */}
+            <div className="grid grid-cols-2 gap-2.5">
               {[
-                { icon: <MapPin size={14} />,        label: "Mumbai, India"     },
-                { icon: <GraduationCap size={14} />, label: "B.Tech CSE 2028"   },
-                { icon: <Code2 size={14} />,         label: "39 Public Repos"   },
-                { icon: <Zap size={14} />,           label: "Systems Builder"   },
+                { icon: <MapPin size={14} className="text-[var(--accent)]" />, title: "Mumbai Base", sub: "Nahur / Navi Mumbai" },
+                { icon: <GraduationCap size={14} className="text-sky-500" />, title: "B.Tech CSE", sub: "3rd Year Undergrad" },
+                { icon: <Terminal size={14} className="text-amber-500" />, title: "Hardcore Linux", sub: "Shell & Containers" },
+                { icon: <Network size={14} className="text-emerald-500" />, title: "Distributed Systems", sub: "Microservices & IaC" },
               ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2.5 border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text-dim)] hover:text-[var(--accent)] hover:border-[var(--accent)]/30 hover:bg-[var(--surface-alt)] transition-all shadow-xs"
-                >
-                  <span className="text-[var(--accent)]">{item.icon}</span>
-                  <span className="font-mono text-xs font-medium">{item.label}</span>
+                <div key={item.title} className="workbench-card p-3">
+                  <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-[var(--text)] mb-0.5">
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </div>
+                  <div className="font-mono text-[11px] text-[var(--text-muted)] truncate">
+                    {item.sub}
+                  </div>
                 </div>
               ))}
             </div>
+
           </div>
 
-          {/* Narrative */}
-          <div className="space-y-6">
-            <h2 className="font-display text-3xl font-bold text-[var(--text)] leading-tight">
-              I like taking systems apart,<br />
-              <span className="gradient-text">figuring out why they break,</span><br />
-              and building them back better.
-            </h2>
-
-            <div className="space-y-4 text-[var(--text-dim)] leading-relaxed">
-              <p>{SKILLS_NARRATIVE.identity}</p>
-              <p>{SKILLS_NARRATIVE.devops}</p>
-              <p>{SKILLS_NARRATIVE.cloud}</p>
-              <p>The non-technical side isn&apos;t decoration. Running events, creating content, coordinating teams — that&apos;s still system design, just for humans.</p>
+          {/* Right Column: Authentic Story Narrative (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            <div className="space-y-4 text-[var(--text-dim)] text-base sm:text-lg leading-relaxed font-normal">
+              <p>
+                I&apos;m a 20-year-old computer science undergrad from Mumbai who approaches software and cloud systems with a builder&apos;s mindset. 
+                I started by dissecting web architectures in 2021, fell in love with distributed systems, and ended up orchestrating Kubernetes clusters and writing modular Terraform infrastructure.
+              </p>
+              <p>
+                <strong className="text-[var(--text)] font-semibold">Engineering discipline over hype:</strong> When I build a system like <span className="text-[var(--accent)] font-semibold">Project OmniGrid</span>, it is engineered as a production-grade infrastructure platform with real IaC, self-healing multi-pod replicas, HashiCorp Vault secrets injection, and centralized ELK observability.
+              </p>
+              <p>
+                The non-technical side reinforces this discipline. Working 7 days on-site at <strong className="text-[var(--text)] font-semibold">IIT Bombay</strong> managing AI recruitment candidate pipelines during Mumbai Tech Week with Babblebots, or running college festival operations as Social Media Club Co-Lead — that is on-the-ground operational leadership.
+              </p>
             </div>
 
-            <div className="border border-[var(--border)] bg-[var(--surface)] p-5 mt-6 shadow-xs">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse-slow" />
-                <span className="font-mono text-xs text-[var(--success)] font-semibold">CURRENTLY ACTIVE</span>
+            {/* Verified Career Proof Highlights */}
+            <div className="workbench-card p-5">
+              <div className="font-mono text-xs font-bold text-[var(--text)] mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[var(--success)]" />
+                VERIFIED CREDENTIALS &amp; TRACK RECORD
               </div>
-              <div className="space-y-2 font-mono text-xs text-[var(--text-muted)]">
+              <div className="space-y-2.5 font-mono text-xs sm:text-sm text-[var(--text-dim)]">
                 {[
-                  "Building production-grade DevOps infrastructure",
-                  "Exploring distributed systems concepts",
-                  "Deepening Kubernetes + Terraform expertise",
-                  "3rd Year B.Tech CSE @ ITM Skills University",
+                  "Smart India Hackathon (SIH) — Selected in national-level technical competition",
+                  "Mumbai Tech Week 2026 @ IIT Bombay — 7 days on-site operations with Babblebots",
+                  "39 public GitHub codebases spanning Kubernetes, AWS Cloud, and MERN applications",
+                  "Social Media Club Co-Lead — Directed event logistics, production, and digital PR",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <span className="text-[var(--accent)] font-bold">→</span>
+                  <div key={item} className="flex items-start gap-2">
+                    <span className="text-[var(--accent)] font-bold">⚡</span>
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );

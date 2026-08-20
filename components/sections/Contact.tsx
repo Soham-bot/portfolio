@@ -1,89 +1,121 @@
 "use client";
-import { Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ExternalLink, ArrowUpRight } from "lucide-react";
 import { PERSONAL } from "../../lib/data";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 relative bg-[var(--bg)]">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--accent)]/[0.03] rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-xs text-[var(--accent)]/60">10</span>
-          <div className="w-8 h-px bg-[var(--accent)]/40" />
-          <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest">Contact</span>
-          <div className="flex-1 h-px bg-[var(--border)]" />
+    <section id="contact" className="py-24 bg-[var(--bg)]">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="mb-10">
+          <div className="font-mono text-xs text-[var(--accent)] font-semibold mb-1">
+            // GET IN TOUCH
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[var(--text)] mb-2">
+            Hit me up.
+          </h2>
+          <p className="text-[var(--text-muted)] text-base max-w-xl">
+            Always open to discussing software engineering roles, DevOps / Cloud infrastructure positions, or hackathon collaborations.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="font-display text-4xl font-black text-[var(--text)] mb-4 leading-tight">
-              Let&apos;s build<br />
-              <span className="gradient-text">something serious.</span>
-            </h2>
-            <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-8 max-w-sm">
-              Whether it&apos;s a project, collaboration, hackathon, or you just want to talk DevOps —
-              I&apos;m reachable. Response time: not as fast as a Kubernetes rolling update, but close.
-            </p>
-
-            <div className="space-y-3">
-              {[
-                { icon: <Mail size={16} />, label: "EMAIL", value: PERSONAL.email, href: `mailto:${PERSONAL.email}` },
-                { icon: <Linkedin size={16} />, label: "LINKEDIN", value: "soham-ahirrao-9024a32b7", href: PERSONAL.linkedin },
-                { icon: <Github size={16} />, label: "GITHUB", value: `Soham-bot (${PERSONAL.repoCount} repos)`, href: PERSONAL.github },
-              ].map((item) => (
-                <a key={item.label} href={item.href} target={item.label !== "EMAIL" ? "_blank" : undefined}
-                  rel={item.label !== "EMAIL" ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 border border-[var(--border)] bg-[var(--surface)] p-4 hover:border-[var(--accent)]/40 hover:bg-[var(--surface-alt)] transition-all group shadow-xs">
-                  <span className="text-[var(--accent)]">{item.icon}</span>
-                  <div>
-                    <div className="font-mono text-xs text-[var(--text-muted)] mb-0.5">{item.label}</div>
-                    <div className="font-mono text-sm text-[var(--text)] group-hover:text-[var(--accent)] transition-colors font-medium">{item.value}</div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Left Column: Direct Links (7 cols) */}
+          <div className="lg:col-span-7 space-y-3">
+            {[
+              {
+                icon: <Mail size={16} />,
+                label: "Email",
+                value: PERSONAL.email,
+                href: `mailto:${PERSONAL.email}`,
+                sub: "Drop me an email anytime",
+              },
+              {
+                icon: <Linkedin size={16} />,
+                label: "LinkedIn",
+                value: "soham-ahirrao-9024a32b7",
+                href: PERSONAL.linkedin,
+                sub: "Connect on LinkedIn",
+              },
+              {
+                icon: <Github size={16} />,
+                label: "GitHub",
+                value: `Soham-bot (${PERSONAL.repoCount} repos)`,
+                href: PERSONAL.github,
+                sub: "Check out my repositories",
+              },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.label !== "Email" ? "_blank" : undefined}
+                rel={item.label !== "Email" ? "noopener noreferrer" : undefined}
+                className="workbench-card p-4 flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-md bg-[var(--surface-alt)] border border-[var(--border)] flex items-center justify-center text-[var(--accent)] group-hover:scale-105 transition-transform flex-shrink-0">
+                    {item.icon}
                   </div>
-                  <ExternalLink size={13} className="ml-auto text-[var(--text-subtle)] group-hover:text-[var(--accent)]" />
-                </a>
-              ))}
-            </div>
+                  <div>
+                    <div className="font-mono text-[11px] text-[var(--text-muted)]">{item.label}</div>
+                    <div className="font-mono text-sm font-semibold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+                      {item.value}
+                    </div>
+                  </div>
+                </div>
+                <ArrowUpRight size={16} className="text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" />
+              </a>
+            ))}
           </div>
 
-          <div className="space-y-4">
-            <a href="/resume"
-              className="flex items-center justify-between border border-[var(--accent)]/40 bg-[var(--surface)] p-6 hover:bg-[var(--accent-dim)] transition-all group w-full shadow-xs hover:shadow-md">
+          {/* Right Column: Resume & Availability (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            
+            <a
+              href="/resume"
+              className="workbench-card p-6 flex items-center justify-between group border-[var(--accent)]/40 hover:border-[var(--accent)] bg-[var(--surface)] block"
+            >
               <div>
-                <div className="font-mono text-xs text-[var(--accent)] mb-1 font-medium">RESUME</div>
-                <div className="font-display text-lg font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">View &amp; Download Resume</div>
-                <div className="font-mono text-xs text-[var(--text-muted)] mt-1">View online · Print as PDF · Updated 2026</div>
+                <div className="font-mono text-[11px] text-[var(--accent)] font-bold mb-1">
+                  OFFICIAL RESUME
+                </div>
+                <div className="font-display text-xl font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+                  View &amp; Print Resume (PDF)
+                </div>
+                <div className="font-mono text-xs text-[var(--text-muted)] mt-1">
+                  Updated 2026 · Print-ready layout
+                </div>
               </div>
-              <Download size={24} className="text-[var(--accent)] group-hover:scale-110 transition-transform" />
+              <Download size={22} className="text-[var(--accent)] group-hover:translate-y-0.5 transition-transform" />
             </a>
 
-            <div className="border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse-slow" />
-                <span className="font-mono text-xs text-[var(--success)] font-semibold">SYSTEM ONLINE</span>
+            <div className="workbench-card p-5">
+              <div className="flex items-center gap-2 mb-3 font-mono text-xs font-bold text-[var(--success)]">
+                <span className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse" />
+                <span>OPEN TO SOFTWARE &amp; CLOUD ROLES</span>
               </div>
-              <div className="font-mono text-xs text-[var(--text-muted)] space-y-2">
-                {[
-                  ["Status",   "Open to opportunities"     ],
-                  ["Location", "Mumbai, Maharashtra"        ],
-                  ["Focus",    "DevOps · Cloud · Full Stack"],
-                  ["Year",     "3rd Year B.Tech CSE"        ],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between">
-                    <span>{k}</span>
-                    <span className="text-[var(--text)] font-medium">{v}</span>
-                  </div>
-                ))}
+              <div className="space-y-2 font-mono text-xs text-[var(--text-dim)]">
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Location</span>
+                  <span className="text-[var(--text)] font-semibold">Mumbai, India</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Education</span>
+                  <span className="text-[var(--text)] font-semibold">3rd Year B.Tech CSE</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-[var(--text-muted)]">Target Roles</span>
+                  <span className="text-[var(--accent)] font-semibold">DevOps · Cloud · Backend</span>
+                </div>
               </div>
             </div>
 
-            <div className="border border-dashed border-[var(--border)] bg-[var(--surface)] p-4 text-center shadow-xs">
-              <span className="font-mono text-[11px] text-[var(--text-muted)]">
-                Try typing <span className="text-[var(--accent)] font-semibold">$ help</span> in the terminal above ↑
-              </span>
-            </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );

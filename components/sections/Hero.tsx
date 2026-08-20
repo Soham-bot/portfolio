@@ -1,175 +1,201 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { ArrowDown, Github, Linkedin, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowDown, Github, Linkedin, ExternalLink, Activity, Server, Cloud, Cpu, ShieldCheck, Terminal, MapPin, Sparkles } from "lucide-react";
 import { PERSONAL } from "../../lib/data";
 
-const ROTATING_STATUS = ["BUILDING", "SHIPPING", "LEARNING", "EXPERIMENTING", "DEBUGGING", "DEPLOYING"];
+const CURRENT_ACTIVITY = [
+  "orchestrating multi-replica Kubernetes clusters with self-healing",
+  "writing modular Terraform HCL configurations",
+  "tuning AWS multi-tier architectures (EC2 + RDS + S3 + CloudFront)",
+  "testing HashiCorp Vault secrets injection pipelines",
+  "aggregating microservices logs with ELK Stack",
+];
 
 export default function Hero() {
-  const [statusIndex, setStatusIndex] = useState(0);
+  const [activityIdx, setActivityIdx] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [charIdx, setCharIdx] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [uptime, setUptime] = useState("00:00:00");
-  const startTime = useRef(Date.now());
 
+  // Typewriter effect for current dev focus
   useEffect(() => {
-    const word = ROTATING_STATUS[statusIndex];
-    const speed = isDeleting ? 50 : 100;
+    const text = CURRENT_ACTIVITY[activityIdx];
+    const speed = isDeleting ? 20 : 45;
     const timer = setTimeout(() => {
       if (!isDeleting) {
-        setDisplayed(word.slice(0, charIdx + 1));
-        if (charIdx + 1 === word.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
+        setDisplayed(text.slice(0, charIdx + 1));
+        if (charIdx + 1 === text.length) {
+          setTimeout(() => setIsDeleting(true), 2500);
         } else setCharIdx(charIdx + 1);
       } else {
-        setDisplayed(word.slice(0, charIdx - 1));
+        setDisplayed(text.slice(0, charIdx - 1));
         if (charIdx - 1 === 0) {
           setIsDeleting(false);
-          setStatusIndex((statusIndex + 1) % ROTATING_STATUS.length);
+          setActivityIdx((activityIdx + 1) % CURRENT_ACTIVITY.length);
           setCharIdx(0);
         } else setCharIdx(charIdx - 1);
       }
     }, speed);
     return () => clearTimeout(timer);
-  }, [charIdx, isDeleting, statusIndex]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime.current) / 1000);
-      const h = Math.floor(elapsed / 3600).toString().padStart(2, "0");
-      const m = Math.floor((elapsed % 3600) / 60).toString().padStart(2, "0");
-      const s = (elapsed % 60).toString().padStart(2, "0");
-      setUptime(`${h}:${m}:${s}`);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  }, [charIdx, isDeleting, activityIdx]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden grid-bg">
-      {/* Glow blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--accent)]/[0.03] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/[0.04] rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
+    <section id="hero" className="relative pt-36 pb-20 overflow-hidden bg-[var(--bg)] border-b border-[var(--border)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-14">
+          
+          {/* Left Column: Real Bio, Conviction & Actions (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Live Location & Status Pill */}
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-[var(--text-muted)] bg-[var(--surface-alt)] border border-[var(--border)] px-3 py-1 rounded-md">
+              <span className="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse" />
+              <span>Mumbai, India (022)</span>
+              <span className="text-[var(--text-subtle)]">·</span>
+              <span className="text-[var(--text-dim)]">3rd Year B.Tech CSE (2024–2028)</span>
+            </div>
 
-      {/* System status bar */}
-      <div className="absolute top-0 left-0 right-0 pt-20 px-6 flex justify-between items-center opacity-70 dark:opacity-30 pointer-events-none">
-        <span className="font-mono text-xs text-[var(--success)] font-medium">● SYSTEM ONLINE</span>
-        <span className="font-mono text-xs text-[var(--text-muted)]">UPTIME: {uptime}</span>
-        <span className="font-mono text-xs text-[var(--text-muted)]">v2026.08.19</span>
-      </div>
+            {/* Main Headline */}
+            <div>
+              <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-[var(--text)] tracking-tight leading-tight mb-2">
+                Hey, I&apos;m Soham.
+              </h1>
+              <p className="font-mono text-base sm:text-lg text-[var(--accent)] font-semibold">
+                DevOps &amp; Cloud Systems Engineer · Full-Stack Builder
+              </p>
+            </div>
 
-      {/* Corner decorators */}
-      <div className="absolute top-24 left-6 w-8 h-8 border-t border-l border-[var(--accent)]/30 pointer-events-none" />
-      <div className="absolute top-24 right-6 w-8 h-8 border-t border-r border-[var(--accent)]/30 pointer-events-none" />
-      <div className="absolute bottom-12 left-6 w-8 h-8 border-b border-l border-[var(--accent)]/30 pointer-events-none" />
-      <div className="absolute bottom-12 right-6 w-8 h-8 border-b border-r border-[var(--accent)]/30 pointer-events-none" />
+            {/* Authentic First-Person Bio */}
+            <p className="text-[var(--text-dim)] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+              I&apos;m a 20-year-old developer from Mumbai who likes understanding how software runs under the hood. 
+              I spend most of my time building resilient cloud architectures, orchestrating self-healing Kubernetes clusters, writing Terraform IaC, and shipping real full-stack web apps.
+            </p>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        {/* System label */}
-        <div className="font-mono text-xs text-[var(--text-muted)] mb-6 flex items-center gap-3">
-          <span className="w-8 h-px bg-[var(--accent)]/60" />
-          <span>SOHAM-BOT // PORTFOLIO_OS // BOOT_SEQUENCE_COMPLETE</span>
+            {/* Currently Doing Line */}
+            <div className="font-mono text-xs sm:text-sm bg-[var(--surface)] border border-[var(--border)] p-3.5 rounded-md text-[var(--text-muted)] flex items-start gap-2.5">
+              <span className="text-[var(--accent)] font-bold flex-shrink-0 mt-0.5">❯</span>
+              <div>
+                <span className="text-[var(--text-subtle)] font-medium">currently working on: </span>
+                <span className="text-[var(--text)] font-semibold">{displayed}</span>
+                <span className="animate-blink text-[var(--accent)] font-bold">|</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              <a
+                href="#projects"
+                className="font-mono text-xs sm:text-sm bg-[var(--text)] text-[var(--bg)] px-5 py-3 font-bold hover:opacity-90 transition-all flex items-center gap-2 rounded-md shadow-xs"
+              >
+                Stuff I&apos;ve built <ArrowDown size={14} />
+              </a>
+              <a
+                href="/resume"
+                className="font-mono text-xs sm:text-sm border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] px-5 py-3 font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all flex items-center gap-2 rounded-md shadow-xs"
+              >
+                Resume (PDF) <ExternalLink size={13} />
+              </a>
+              <a
+                href={PERSONAL.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs sm:text-sm border border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] px-4 py-3 font-medium hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all flex items-center gap-2 rounded-md shadow-xs"
+              >
+                <Github size={15} /> GitHub (39 repos)
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Real Dev Card & Proof Highlights (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            
+            {/* Real Personal Photo / Dev Profile Card */}
+            <div className="workbench-card p-6 relative">
+              <div className="flex items-center gap-4 mb-4 pb-4 border-b border-[var(--border)]">
+                {/* Photo frame: Soham can drop his real headshot image directly into /public/images/soham_photo.jpg */}
+                <div className="w-16 h-16 rounded-full bg-[var(--surface-alt)] border-2 border-[var(--border)] flex items-center justify-center text-2xl font-display font-extrabold text-[var(--accent)] flex-shrink-0 shadow-inner">
+                  SA
+                </div>
+                <div>
+                  <div className="font-display font-bold text-lg text-[var(--text)] leading-tight">
+                    {PERSONAL.name}
+                  </div>
+                  <div className="font-mono text-xs text-[var(--text-muted)] mt-0.5">
+                    @{PERSONAL.handle} · {PERSONAL.age} y/o
+                  </div>
+                  <div className="font-mono text-[11px] text-[var(--accent)] font-semibold mt-0.5">
+                    ITM Skills University (B.Tech CSE &apos;28)
+                  </div>
+                </div>
+              </div>
+
+              {/* Dev Quick Proof Points */}
+              <div className="space-y-2.5 font-mono text-xs text-[var(--text-dim)]">
+                <div className="flex items-center justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">Public Repos</span>
+                  <span className="font-bold text-[var(--text)]">39 Shipped</span>
+                </div>
+                <div className="flex items-center justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">SIH Hackathon</span>
+                  <span className="font-bold text-[var(--success)]">Selected (National)</span>
+                </div>
+                <div className="flex items-center justify-between py-1 border-b border-[var(--border)]/60">
+                  <span className="text-[var(--text-muted)]">On-Site Ops</span>
+                  <span className="font-bold text-[var(--text)]">7 Days @ IIT Bombay</span>
+                </div>
+                <div className="flex items-center justify-between py-1">
+                  <span className="text-[var(--text-muted)]">Primary Focus</span>
+                  <span className="font-bold text-[var(--accent)]">K8s · AWS · Terraform</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Superpower Cards */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { icon: <Server size={15} className="text-[var(--accent)]" />, title: "Kubernetes & DevOps", note: "3x pods, self-healing, Jenkins" },
+                { icon: <Cloud size={15} className="text-sky-500" />, title: "AWS Multi-Tier", note: "EC2, S3, RDS, CloudFront" },
+                { icon: <Cpu size={15} className="text-amber-500" />, title: "Terraform IaC", note: "100% reconstructable state" },
+                { icon: <ShieldCheck size={15} className="text-emerald-500" />, title: "Full Stack (MERN)", note: "Node, Express, Mongo, React" },
+              ].map((item) => (
+                <div key={item.title} className="workbench-card p-3.5">
+                  <div className="flex items-center gap-1.5 mb-1 text-[var(--text)] font-mono text-xs font-bold">
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </div>
+                  <div className="font-mono text-[11px] text-[var(--text-muted)] leading-tight">
+                    {item.note}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Main heading */}
-        <h1 className="font-display font-black leading-none mb-6">
-          <span className="block text-[clamp(3rem,8vw,7rem)] text-[var(--text)] tracking-tight">
-            SOHAM
-          </span>
-          <span className="block text-[clamp(3rem,8vw,7rem)] gradient-text tracking-tight">
-            AHIRRAO
-          </span>
-        </h1>
-
-        {/* Status line */}
-        <div className="font-mono text-base text-[var(--text-dim)] mb-3 flex items-center gap-2">
-          <span className="text-[var(--accent)] font-semibold">STATUS:</span>
-          <span className="text-[var(--text)]">{displayed}</span>
-          <span className="animate-blink text-[var(--accent)]">█</span>
-        </div>
-
-        {/* Tagline */}
-        <p className="font-mono text-sm text-[var(--text-muted)] mb-10 max-w-2xl leading-relaxed">
-          <span className="text-[var(--accent)]">//</span>{" "}
-          {PERSONAL.tagline}
-          <br />
-          <span className="text-[var(--accent)]">//</span>{" "}
-          B.Tech CSE · {PERSONAL.university} · {PERSONAL.location}
-        </p>
-
-        {/* Identity tags */}
-        <div className="flex flex-wrap gap-2 mb-12">
-          {["Software Developer", "Cloud", "DevOps", "Full Stack", "AI/ML"].map((tag) => (
-            <span
-              key={tag}
-              className="font-mono text-xs border border-[var(--accent)]/30 text-[var(--accent)] bg-[var(--surface)] px-3 py-1 hover:border-[var(--accent)]/60 hover:bg-[var(--accent-dim)] transition-all shadow-xs"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 mb-16">
-          <a
-            href="#projects"
-            className="group font-mono text-sm bg-[var(--accent)] text-white px-6 py-3 font-semibold hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
-          >
-            Explore Systems
-            <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
-          </a>
-          <a
-            href="/resume"
-            className="font-mono text-sm border border-[var(--accent)]/40 bg-[var(--surface)] text-[var(--accent)] px-6 py-3 hover:bg-[var(--accent-dim)] transition-all flex items-center gap-2 shadow-xs"
-          >
-            Resume <ExternalLink size={14} />
-          </a>
-          <a
-            href={PERSONAL.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-sm border border-[var(--border)] bg-[var(--surface)] text-[var(--text-dim)] px-6 py-3 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-all flex items-center gap-2 shadow-xs"
-          >
-            <Github size={16} /> GitHub
-          </a>
-        </div>
-
-        {/* Quick stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+        {/* 4 Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-[var(--border)]">
           {[
-            { label: "REPOSITORIES", value: "39+" },
-            { label: "TECH STACK",   value: "40+" },
-            { label: "HACKATHONS",   value: "5+"  },
-            { label: "YEARS CODING", value: "2+"  },
+            { value: "39+", label: "Public Repositories", desc: "Open-source builds on GitHub" },
+            { value: "3x",  label: "K8s Active Replicas", desc: "Self-healing microservices" },
+            { value: "SIH", label: "Smart India Hackathon", desc: "Selected in national competition" },
+            { value: "7d",  label: "On-Site @ IIT Bombay", desc: "AI ops with Babblebots at MTW" },
           ].map((stat) => (
-            <div
-              key={stat.label}
-              className="border border-[var(--border)] p-3.5 hover:border-[var(--accent)]/30 transition-all bg-[var(--surface)] shadow-xs"
-            >
-              <div className="font-mono text-2xl font-bold text-[var(--text)] mb-1">{stat.value}</div>
-              <div className="font-mono text-[10px] text-[var(--text-muted)] font-medium">{stat.label}</div>
+            <div key={stat.label} className="workbench-card p-4">
+              <div className="font-display font-black text-2xl sm:text-3xl text-[var(--text)] mb-0.5">
+                {stat.value}
+              </div>
+              <div className="font-mono text-xs font-bold text-[var(--text)] mb-0.5">
+                {stat.label}
+              </div>
+              <div className="font-mono text-[11px] text-[var(--text-muted)]">
+                {stat.desc}
+              </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 dark:opacity-30">
-        <span className="font-mono text-[10px] text-[var(--text-muted)] font-medium">SCROLL TO EXPLORE</span>
-        <div className="w-px h-8 bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent animate-pulse-slow" />
-      </div>
-
-      {/* Side social links */}
-      <div className="absolute right-6 bottom-1/2 translate-y-1/2 hidden lg:flex flex-col gap-4">
-        <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer"
-          className="text-[var(--text-subtle)] hover:text-[var(--accent)] transition-colors" aria-label="GitHub">
-          <Github size={18} />
-        </a>
-        <a href={PERSONAL.linkedin} target="_blank" rel="noopener noreferrer"
-          className="text-[var(--text-subtle)] hover:text-[var(--accent)] transition-colors" aria-label="LinkedIn">
-          <Linkedin size={18} />
-        </a>
-        <div className="w-px h-16 bg-[var(--border)] mx-auto" />
       </div>
     </section>
   );

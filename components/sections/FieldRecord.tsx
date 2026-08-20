@@ -1,44 +1,51 @@
 "use client";
-import { Trophy, Users, Camera } from "lucide-react";
-import { HACKATHONS, LEADERSHIP, CREATIVE_EVENTS } from "../../lib/data";
+import { Trophy, Users, Building2, Sparkles, Award } from "lucide-react";
+import { HACKATHONS, LEADERSHIP, VOLUNTEERING } from "../../lib/data";
 
 const ROLE_BADGE: Record<string, string> = {
-  "Selected / Participant": "text-[var(--accent)] border-[var(--accent)]/30 bg-[var(--accent-dim)] font-medium",
-  "Selected":              "text-[var(--success)] border-[var(--success)]/30 bg-emerald-500/10 font-semibold",
-  "Attendee / Coverage":   "text-[var(--text-dim)] border-[var(--border)] bg-[var(--surface-alt)]",
-  "Participant":           "text-[var(--accent)] border-[var(--accent)]/30 bg-[var(--accent-dim)]",
-  "Community":             "text-[var(--text-dim)] border-[var(--border)] bg-[var(--surface-alt)]",
-  "Involved":              "text-[var(--text-dim)] border-[var(--border)] bg-[var(--surface-alt)]",
+  "Selected":              "text-[var(--success)] bg-emerald-500/10 border-emerald-500/30",
+  "Selected / Participant":"text-[var(--accent)] bg-[var(--accent-dim)] border-[var(--accent)]/30",
+  "Volunteer @ IIT Bombay":"text-amber-400 bg-amber-500/10 border-amber-500/30",
+  "Volunteer":            "text-[var(--accent-alt)] bg-[var(--accent-dim)] border-[var(--border)]",
+  "Participant":          "text-[var(--text-muted)] bg-[var(--surface-alt)] border-[var(--border)]",
 };
 
 export default function FieldRecord() {
   return (
-    <section id="field-record" className="py-32 bg-[var(--bg-alt)]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-xs text-[var(--accent)]/60">06</span>
-          <div className="w-8 h-px bg-[var(--accent)]/40" />
-          <span className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-widest">Field Record</span>
-          <div className="flex-1 h-px bg-[var(--border)]" />
+    <section id="field-record" className="py-24 bg-[var(--bg)] border-b border-[var(--border)]">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="mb-10">
+          <div className="font-mono text-xs text-[var(--accent)] font-semibold mb-1">
+            // IRL &amp; ON-SITE EXPERIENCE
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[var(--text)] mb-2">
+            Hackathons &amp; IRL operations.
+          </h2>
+          <p className="text-[var(--text-muted)] text-base max-w-xl">
+            Selected in national Smart India Hackathon, 7 days on-site at IIT Bombay during Mumbai Tech Week with Babblebots, and college media leadership.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Hackathons */}
-          <div className="border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
-            <div className="flex items-center gap-3 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          {/* Hackathons Column */}
+          <div className="workbench-card p-5 flex flex-col">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border)] font-mono text-xs font-bold text-[var(--text)]">
               <Trophy size={16} className="text-[var(--accent)]" />
-              <span className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider font-semibold">Hackathons &amp; Events</span>
+              <span>HACKATHONS &amp; CONTESTS</span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5 flex-1">
               {HACKATHONS.map((h) => (
-                <div key={h.name} className="border border-[var(--border)] bg-[var(--surface-alt)]/40 p-3.5 hover:border-[var(--accent)]/30 transition-all rounded-xs shadow-xs">
-                  <div className="font-mono text-xs text-[var(--text)] mb-1.5 font-medium">{h.name}</div>
+                <div key={h.name} className="p-3 rounded-md bg-[var(--surface-alt)] border border-[var(--border)]">
+                  <div className="font-mono text-xs font-semibold text-[var(--text)] mb-1.5">{h.name}</div>
                   <div className="flex items-center justify-between">
-                    <span className={`font-mono text-[10px] border px-2 py-0.5 rounded-xs ${ROLE_BADGE[h.role] || "text-[var(--text-muted)] border-[var(--border)]"}`}>
+                    <span className={`font-mono text-[10px] font-bold px-2 py-0.5 rounded-sm border ${ROLE_BADGE[h.role] || "text-[var(--text-muted)]"}`}>
                       {h.role}
                     </span>
-                    <span className="font-mono text-[10px] text-[var(--text-subtle)]">
-                      {h.type === "hackathon" ? "🏆" : "📍"}
+                    <span className="font-mono text-[10px] text-[var(--text-muted)]">
+                      {h.year}
                     </span>
                   </div>
                 </div>
@@ -46,56 +53,69 @@ export default function FieldRecord() {
             </div>
           </div>
 
-          {/* Leadership */}
-          <div className="border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
-            <div className="flex items-center gap-3 mb-6">
-              <Users size={16} className="text-[var(--accent)]" />
-              <span className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider font-semibold">Leadership</span>
+          {/* On-Site Operations (IIT Bombay & Babblebots) */}
+          <div className="workbench-card p-5 flex flex-col">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border)] font-mono text-xs font-bold text-[var(--text)]">
+              <Building2 size={16} className="text-amber-500" />
+              <span>ON-SITE OPERATIONS &amp; GIGS</span>
             </div>
-            {LEADERSHIP.map((role) => (
-              <div key={role.title} className="space-y-4">
-                <div>
-                  <h3 className="font-display font-semibold text-[var(--text)] mb-1">{role.title}</h3>
-                  <div className="font-mono text-xs text-[var(--accent)] mb-1 font-medium">{role.org}</div>
-                  <div className="font-mono text-xs text-[var(--text-muted)]">{role.period}</div>
-                </div>
-                <div className="space-y-1">
-                  {role.responsibilities.map((r) => (
-                    <div key={r} className="flex items-start gap-2 font-mono text-xs text-[var(--text-muted)]">
-                      <span className="text-[var(--accent)] mt-0.5 font-bold">→</span>
-                      <span>{r}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Creative */}
-          <div className="border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
-            <div className="flex items-center gap-3 mb-6">
-              <Camera size={16} className="text-[var(--accent)]" />
-              <span className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider font-semibold">Creative Work</span>
-            </div>
-            <div className="space-y-4">
-              {CREATIVE_EVENTS.map((event) => (
-                <div key={event.name} className="border border-[var(--border)] bg-[var(--surface-alt)]/40 p-4 hover:border-[var(--accent)]/30 transition-all rounded-xs shadow-xs">
-                  <div className="font-mono text-[10px] text-[var(--accent)] mb-1 font-medium">{event.type}</div>
-                  <div className="font-mono text-xs text-[var(--text)] mb-2 font-medium">{event.name}</div>
-                  <p className="text-[var(--text-muted)] text-xs leading-relaxed">{event.desc}</p>
+            <div className="space-y-3.5 flex-1">
+              {VOLUNTEERING.map((v) => (
+                <div key={v.event} className="p-3.5 rounded-md bg-[var(--surface-alt)] border border-[var(--border)]">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-mono text-[10px] text-[var(--accent)] font-bold">{v.org}</span>
+                    <span className="font-mono text-[10px] text-[var(--text-muted)]">{v.year}</span>
+                  </div>
+                  <div className="font-display font-bold text-sm text-[var(--text)] mb-2">{v.event}</div>
+                  <div className="space-y-1">
+                    {v.highlights.map((item) => (
+                      <div key={item} className="flex items-start gap-1.5 font-mono text-[11px] text-[var(--text-muted)]">
+                        <span className="text-[var(--accent)] font-bold">→</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
-              <div className="border border-[var(--border)] bg-[var(--surface-alt)]/20 p-4 rounded-xs">
-                <div className="font-mono text-[10px] text-[var(--accent)] mb-2 font-semibold">CREATIVE SKILLS</div>
+            </div>
+          </div>
+
+          {/* Leadership & Creative */}
+          <div className="workbench-card p-5 flex flex-col">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border)] font-mono text-xs font-bold text-[var(--text)]">
+              <Users size={16} className="text-sky-500" />
+              <span>LEADERSHIP &amp; ORGANIZING</span>
+            </div>
+            <div className="space-y-3.5 flex-1">
+              {LEADERSHIP.map((role) => (
+                <div key={role.title} className="p-3.5 rounded-md bg-[var(--surface-alt)] border border-[var(--border)]">
+                  <span className="font-mono text-[10px] text-[var(--accent)] font-bold block mb-0.5">{role.period}</span>
+                  <div className="font-display font-bold text-sm text-[var(--text)] mb-0.5">{role.title}</div>
+                  <div className="font-mono text-xs text-[var(--text-muted)] mb-2.5">{role.org}</div>
+                  <div className="space-y-1">
+                    {role.responsibilities.slice(0, 4).map((r) => (
+                      <div key={r} className="flex items-start gap-1.5 font-mono text-[11px] text-[var(--text-dim)]">
+                        <span className="text-[var(--accent)] font-bold">→</span>
+                        <span>{r}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <div className="p-3.5 rounded-md bg-[var(--surface-alt)] border border-[var(--border)]">
+                <div className="font-mono text-[10px] text-[var(--text-muted)] font-bold uppercase mb-2">MANAGEMENT TOOLKIT</div>
                 <div className="flex flex-wrap gap-1">
-                  {["Photography","Videography","Reels","Content Strategy","Event Ops","PR","Social Media","Content Calendar"].map((s) => (
-                    <span key={s} className="font-mono text-[10px] bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-muted)] px-2 py-0.5 rounded-sm">{s}</span>
+                  {["Team Ops","Event Logistics","PR & Media","Video Production","Candidate Pipelines"].map((s) => (
+                    <span key={s} className="code-pill">{s}</span>
                   ))}
                 </div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );

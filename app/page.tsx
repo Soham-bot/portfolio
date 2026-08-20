@@ -16,13 +16,12 @@ import GitHubSection from "../components/sections/GitHub";
 import DevMode from "../components/ui/DevMode";
 
 const BOOT_STEPS = [
-  { at: 10,  text: "✓ Loading identity module"     },
-  { at: 25,  text: "✓ Mounting project registry"   },
-  { at: 40,  text: "✓ Initializing DevOps stack"   },
-  { at: 55,  text: "✓ Connecting to GitHub"         },
-  { at: 70,  text: "✓ Loading creative assets"      },
-  { at: 85,  text: "✓ Spinning up terminal"         },
-  { at: 100, text: "✓ SYSTEM ONLINE"                },
+  { at: 15,  text: "✓ Initializing high-performance telemetry engine" },
+  { at: 35,  text: "✓ Mounting Kubernetes & Terraform IaC configurations" },
+  { at: 55,  text: "✓ Connecting AWS multi-tier cloud architectures" },
+  { at: 75,  text: "✓ Loading 39 public GitHub codebases" },
+  { at: 90,  text: "✓ Telemetry diagnostics online" },
+  { at: 100, text: "✓ ALL SYSTEMS NOMINAL // ZERO DOWNTIME" },
 ];
 
 export default function Home() {
@@ -35,12 +34,12 @@ export default function Home() {
       setProgress((p) => {
         if (p >= 100) {
           clearInterval(timer);
-          setTimeout(() => setLoaded(true), 300);
+          setTimeout(() => setLoaded(true), 250);
           return 100;
         }
-        return Math.min(p + Math.random() * 15 + 5, 100);
+        return Math.min(p + Math.random() * 20 + 8, 100);
       });
-    }, 80);
+    }, 60);
     return () => clearInterval(timer);
   }, []);
 
@@ -63,11 +62,11 @@ export default function Home() {
         <div className="w-full max-w-md px-8">
           {/* Header */}
           <div className="mb-6">
-            <div className="text-xs mb-1 font-bold tracking-wider text-[var(--accent)]">
-              SOHAM-OS v2026
+            <div className="text-xs mb-1 font-black tracking-wider text-[var(--accent)] uppercase font-mono">
+              ⚡ SOHAM AHIRRAO // SYSTEMS TELEMETRY
             </div>
-            <div className="text-xs font-medium text-[var(--text-muted)]">
-              Initializing portfolio system...
+            <div className="text-xs font-semibold text-[var(--text-muted)]">
+              Calibrating cloud &amp; infrastructure telemetry...
             </div>
           </div>
 

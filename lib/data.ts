@@ -1,29 +1,39 @@
 // =========================================================
 // SOHAM AHIRRAO — PORTFOLIO DATA
-// Verified from: GitHub + Resume PDF + provided context
+// Cloud, DevOps & Systems Engineering
 // =========================================================
 
 export const PERSONAL = {
   name: "Soham Ahirrao",
   handle: "Soham-bot",
-  tagline: "I build systems. I break things. Then I build them better.",
-  subtagline: "Software Developer · Cloud · DevOps · Full Stack",
+  city: "Mumbai // 022",
+  tagline: "Cloud, DevOps & Systems Engineer.",
+  subtagline: "20 y/o Systems & DevOps Engineer · Orchestrating multi-replica Kubernetes clusters, provisioning Terraform IaC, and architecting resilient AWS cloud platforms.",
+  heroPunchline: "Architecting resilient infrastructure, distributed systems, and automated cloud pipelines.",
+  systemMode: "SYSTEM STATUS // 100% OPERATIONAL",
   location: "Mumbai, Maharashtra",
   university: "ITM Skills University, Kharghar",
   degree: "B.Tech CSE",
   year: "3rd Year",
   graduation: "2028",
   age: 20,
-  email: "sohamrao2006@gmail.com",       // verified from resume PDF
-  phone: "9137877036",                   // verified from resume PDF
+  email: "sohamrao2006@gmail.com",
+  phone: "9137877036",
   eduEmail: "2024.sohama@isu.ac.in",
   github: "https://github.com/Soham-bot",
   linkedin: "https://www.linkedin.com/in/soham-ahirrao-9024a32b7",
-  languages: ["English", "Hindi", "Marathi"], // verified from resume PDF
-  funFact: "Planning to open a gaming café in Nahur East.",
+  languages: ["English", "Hindi", "Marathi"],
+  funFact: "Passionate about distributed systems architecture, Linux internals, and cloud infrastructure automation.",
   pronouns: "he/him",
   repoCount: 39,
-  status: ["BUILDING", "LEARNING", "EXPERIMENTING"],
+  status: ["ORCHESTRATING KUBERNETES", "PROVISIONING TERRAFORM", "AWS CLOUD ARCHITECTURE"],
+  systemHighlights: [
+    "Orchestrating multi-replica Kubernetes clusters with automated self-healing.",
+    "100% Terraform Infrastructure as Code — environments reconstructable from scratch.",
+    "High-throughput, low-latency AWS multi-tier cloud architectures.",
+    "Battle-tested across 39 public GitHub repositories.",
+    "Centralized observability with Prometheus, Grafana, and ELK Stack.",
+  ],
 };
 
 export const EDUCATION = [
@@ -54,31 +64,15 @@ export const EDUCATION = [
 ];
 
 export const STACK = {
-  languages: [
-    { name: "Python",      level: "strong",   icon: "🐍" },
-    { name: "JavaScript",  level: "strong",   icon: "⚡" },
-    { name: "TypeScript",  level: "familiar", icon: "📘" },
-    { name: "HTML/CSS",    level: "strong",   icon: "🎨" },
-    { name: "Dart",        level: "familiar", icon: "🎯" },
-    { name: "SQL",         level: "familiar", icon: "🗃️" },
-  ],
-  frontend: [
-    { name: "React.js",    level: "familiar" },
-    { name: "Next.js",     level: "learning" },
-    { name: "Tailwind CSS",level: "familiar" },
-    { name: "HTML5/CSS3",  level: "strong"   },
-  ],
-  backend: [
-    { name: "Node.js",     level: "familiar" },
-    { name: "Express.js",  level: "familiar" },
-    { name: "Flask",       level: "familiar" },
-    { name: "REST APIs",   level: "familiar" },
-  ],
-  databases: [
-    { name: "MongoDB",           level: "familiar" },
-    { name: "Firebase/Firestore",level: "familiar" },
-    { name: "MySQL",             level: "familiar" },
-    { name: "PostgreSQL",        level: "learning" },
+  devops: [
+    { name: "Docker",          level: "strong"   },
+    { name: "Kubernetes",      level: "familiar" },
+    { name: "Terraform",       level: "familiar" },
+    { name: "Jenkins",         level: "familiar" },
+    { name: "Prometheus",      level: "familiar" },
+    { name: "Grafana",         level: "familiar" },
+    { name: "ELK Stack",       level: "familiar" },
+    { name: "HashiCorp Vault", level: "familiar" },
   ],
   cloud: [
     { name: "AWS EC2",       level: "familiar" },
@@ -90,15 +84,31 @@ export const STACK = {
     { name: "AWS CloudWatch",level: "familiar" },
     { name: "AWS SQS",       level: "learning" },
   ],
-  devops: [
-    { name: "Docker",          level: "strong"   },
-    { name: "Kubernetes",      level: "familiar" },
-    { name: "Terraform",       level: "familiar" },
-    { name: "Jenkins",         level: "familiar" },
-    { name: "Prometheus",      level: "familiar" },
-    { name: "Grafana",         level: "familiar" },
-    { name: "ELK Stack",       level: "familiar" },
-    { name: "HashiCorp Vault", level: "familiar" },
+  languages: [
+    { name: "Python",      level: "strong",   icon: "🐍" },
+    { name: "JavaScript",  level: "strong",   icon: "⚡" },
+    { name: "TypeScript",  level: "familiar", icon: "📘" },
+    { name: "HTML/CSS",    level: "strong",   icon: "🎨" },
+    { name: "Dart",        level: "familiar", icon: "🎯" },
+    { name: "SQL",         level: "familiar", icon: "🗃️" },
+  ],
+  backend: [
+    { name: "Node.js",     level: "familiar" },
+    { name: "Express.js",  level: "familiar" },
+    { name: "Flask",       level: "familiar" },
+    { name: "REST APIs",   level: "familiar" },
+  ],
+  frontend: [
+    { name: "React.js",    level: "familiar" },
+    { name: "Next.js",     level: "learning" },
+    { name: "Tailwind CSS",level: "familiar" },
+    { name: "HTML5/CSS3",  level: "strong"   },
+  ],
+  databases: [
+    { name: "MongoDB",           level: "familiar" },
+    { name: "Firebase/Firestore",level: "familiar" },
+    { name: "MySQL",             level: "familiar" },
+    { name: "PostgreSQL",        level: "learning" },
   ],
   aiml: [
     { name: "Prompt Engineering",level: "familiar" },
@@ -134,14 +144,14 @@ export const PROJECTS = [
       "A production-grade DevOps engineering project implementing a full microservices infrastructure with Kubernetes orchestration, Jenkins CI/CD, Terraform IaC, Prometheus/Grafana monitoring, ELK Stack logging, and HashiCorp Vault secrets management.",
     tech: ["Python","Docker","Kubernetes","Minikube","Terraform","Jenkins","Prometheus","Grafana","ELK Stack","HashiCorp Vault","HCL"],
     architecture: [
-      { name: "Jenkins",         role: "CI/CD Pipeline",         desc: "Automates build, test, and deployment on every commit. Triggers Docker builds and Kubernetes rolling updates.", color: "#d4381e" },
-      { name: "Docker",          role: "Containerization",        desc: "Packages the Telemetry API and services into portable containers with defined Dockerfiles.", color: "#2496ed" },
-      { name: "Kubernetes",      role: "Orchestration",           desc: "Maintains 3 active replicas of the Telemetry API. Self-heals crashed pods automatically. Rolling updates with zero downtime.", color: "#326ce5" },
-      { name: "Terraform",       role: "Infrastructure as Code",  desc: "All infrastructure provisioned via HCL. Can reconstruct entire environment from scratch using version-controlled state.", color: "#7b42bc" },
-      { name: "Prometheus",      role: "Metrics Collection",      desc: "Scrapes system and application metrics at defined intervals. Feeds into Grafana dashboards.", color: "#e6522c" },
-      { name: "Grafana",         role: "Visualization",           desc: "Real-time dashboards displaying infrastructure health, service performance, and alerting.", color: "#f46800" },
-      { name: "ELK Stack",       role: "Centralized Logging",     desc: "Elasticsearch, Logstash, Kibana — aggregates and indexes logs across all services.", color: "#00bfb3" },
-      { name: "HashiCorp Vault", role: "Secrets Management",      desc: "Enterprise-grade secrets storage. No plaintext credentials in code or environment files.", color: "#6c4fbb" },
+      { name: "Jenkins",         role: "CI/CD Pipeline",         desc: "Automates build, test, and deployment on every commit. Triggers Docker builds and Kubernetes rolling updates.", color: "#2563eb" },
+      { name: "Docker",          role: "Containerization",        desc: "Packages the Telemetry API and services into portable containers with defined Dockerfiles.", color: "#0ea5e9" },
+      { name: "Kubernetes",      role: "Orchestration",           desc: "Maintains 3 active replicas of the Telemetry API. Self-heals crashed pods automatically. Rolling updates with zero downtime.", color: "#3b82f6" },
+      { name: "Terraform",       role: "Infrastructure as Code",  desc: "All infrastructure provisioned via HCL. Can reconstruct entire environment from scratch using version-controlled state.", color: "#6366f1" },
+      { name: "Prometheus",      role: "Metrics Collection",      desc: "Scrapes system and application metrics at defined intervals. Feeds into Grafana dashboards.", color: "#f59e0b" },
+      { name: "Grafana",         role: "Visualization",           desc: "Real-time dashboards displaying infrastructure health, service performance, and alerting.", color: "#ea580c" },
+      { name: "ELK Stack",       role: "Centralized Logging",     desc: "Elasticsearch, Logstash, Kibana — aggregates and indexes logs across all services.", color: "#10b981" },
+      { name: "HashiCorp Vault", role: "Secrets Management",      desc: "Enterprise-grade secrets storage. No plaintext credentials in code or environment files.", color: "#8b5cf6" },
     ],
     highlights: [
       "3 active Kubernetes replicas with automatic self-healing",
@@ -168,10 +178,10 @@ export const PROJECTS = [
       "A cloud-native music streaming web application built on AWS infrastructure. Uses Flask for the application layer, Amazon RDS + MySQL for the database, Amazon S3 for media storage, and CloudFront for global content delivery.",
     tech: ["Flask","Python","AWS EC2","Amazon RDS","MySQL","Amazon S3","Amazon CloudFront","AWS IAM"],
     architecture: [
-      { name: "CloudFront",        role: "CDN / Edge Delivery",  desc: "Delivers static assets and media files globally with low latency. Sits in front of S3 and EC2.", color: "#FF9900" },
-      { name: "EC2",               role: "Application Server",   desc: "Runs the Flask application. Handles HTTP requests, authentication, and API logic.", color: "#FF9900" },
-      { name: "Amazon RDS (MySQL)",role: "Relational Database",  desc: "Stores user data, track metadata, playlists. Managed MySQL instance on RDS.", color: "#FF9900" },
-      { name: "Amazon S3",         role: "Media Storage",        desc: "Stores all audio files and media assets. Accessed via pre-signed URLs or through CloudFront.", color: "#FF9900" },
+      { name: "CloudFront",        role: "CDN / Edge Delivery",  desc: "Delivers static assets and media files globally with low latency. Sits in front of S3 and EC2.", color: "#2563eb" },
+      { name: "EC2",               role: "Application Server",   desc: "Runs the Flask application. Handles HTTP requests, authentication, and API logic.", color: "#0284c7" },
+      { name: "Amazon RDS (MySQL)",role: "Relational Database",  desc: "Stores user data, track metadata, playlists. Managed MySQL instance on RDS.", color: "#3b82f6" },
+      { name: "Amazon S3",         role: "Media Storage",        desc: "Stores all audio files and media assets. Accessed via pre-signed URLs or through CloudFront.", color: "#10b981" },
     ],
     highlights: [
       "Full AWS stack: EC2 + RDS + S3 + CloudFront",
@@ -192,7 +202,6 @@ export const PROJECTS = [
     category: "Full Stack · MERN · Healthcare",
     year: "2025",
     status: "Built",
-    // verified from resume PDF — actual project with real detail
     description:
       "A full-stack healthcare platform enabling users to search, book, and manage diagnostic tests. Built with REST APIs, MongoDB, and React — featuring patient registration, appointment booking, and report management workflows.",
     tech: ["React.js","Node.js","Express.js","MongoDB","REST APIs","JavaScript","HTML/CSS"],
@@ -215,7 +224,6 @@ export const PROJECTS = [
     category: "Frontend · JavaScript · E-Commerce",
     year: "2024",
     status: "Built",
-    // verified from resume PDF
     description:
       "A responsive e-commerce interface for showcasing and managing sneaker listings. Dynamic UI components using JavaScript with 2000+ lines of clean, organized code.",
     tech: ["JavaScript","HTML","CSS"],
@@ -506,7 +514,6 @@ export const JOURNEY: JourneyItem[] = [
   },
 ];
 
-// Corrected & enriched from resume PDF
 export const HACKATHONS = [
   { name: "ITM Skills University Buildathon 1", year: "2024", role: "Participant",        type: "hackathon",   note: "Project development and ideation" },
   { name: "Mumbai Hacks",                       year: "2025", role: "Participant",        type: "hackathon",   note: "Collaborative problem-solving and coding challenges" },
